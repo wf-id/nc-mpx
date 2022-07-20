@@ -62,6 +62,7 @@ jobs:
           CONSUMER_SECRET: ${{ secrets.CONSUMER_SECRET }}
         run: |-
           Rscript -e "source('scrape.R')"
+      - name: quarto
         run: |-
           quarto render
       - name: Commit results
