@@ -1,0 +1,18 @@
+project:
+  type: site
+  output-dir: docs
+
+site:
+  title: "MPX in North Carolina"
+  navbar:
+    type: dark
+    background: primary
+    left:
+      - href: index.qmd
+        text: Home
+
+format:
+  html:
+    theme: flatly
+    css: styles.css
+    toc: true
