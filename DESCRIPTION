@@ -9,6 +9,7 @@ Imports:
     here,
     validate,
     lubridate,
+    ggplot2,
     bit64,
     quarto,
     htmltools
