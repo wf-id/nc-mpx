@@ -17,15 +17,26 @@ dat <- fread(here::here("data", "mpx.csv"))
 
 dat$clean_date <- with(dat, as.Date(stringr::str_extract(ping_time, "\\d{4}-\\d{2}-\\d{2}")))
 
+
+
+last_available <- format(max(dat$clean_date), "%d %B, %Y")
+
+```
+
+These data are current as of `r last_available`.
+
+```{r}
 ggplot(dat, aes(x = clean_date, cases))+
   geom_point()+
   theme_bw()+
-  scale_y_continuous(limits = c(0,NA), name = "Confirmed MPX Cases")+
+  scale_y_continuous(limits = c(0,NA), name = "Cumulative Confirmed MPX Cases")+
   scale_x_date(name = "Date")+
   labs(
     title = "Confirmed Monkeypox (MPX) Cases in North Carolina",
     caption = "Updated Monday - Friday\nData: NCDHHS"
   )
-
 ```
 
+## Data Source
+
+These data are pulled each weekday from the [North Carolina Department of Health's Monkeypox webpage](https://epi.dph.ncdhhs.gov/cd/diseases/monkeypox.html).

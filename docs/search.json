@@ -1,0 +1,16 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "MPX Tracker for North Carolina",
+    "section": "",
+    "text": "Cases updated daily by NCDHHS Monday through Friday.\nThese data are current as of 19 July, 2022."
+  },
+  {
+    "objectID": "index.html#data-source",
+    "href": "index.html#data-source",
+    "title": "MPX Tracker for North Carolina",
+    "section": "Data Source",
+    "text": "Data Source\nThese data are pulled each weekday from the North Carolina Department of Health’s Monkeypox webpage."
+  }
+]
