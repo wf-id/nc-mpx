@@ -10,5 +10,5 @@ Imports:
     validate,
     lubridate,
     bit64,
-    htmltools,
-    quarto
+    quarto,
+    htmltools
