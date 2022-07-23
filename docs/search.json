@@ -1,5 +1,12 @@
 [
   {
+    "objectID": "us.html",
+    "href": "us.html",
+    "title": "MPX in the US",
+    "section": "",
+    "text": "viewof islands = Inputs.select(data.map(d => d.StateDSC), {\n  multiple: true, \n  label: \"StateDSC\", \n  initialValue: \"Alabama\",\n  sort: true, \n  unique: true})\n  \n //islands\n\n\n\n\n\n\n\nInputs.table(filtered)\n\n\n\n\n\n\n\n//#| eval: true\nPlot.plot({\n  y: {\n    grid: true,\n    label: \"Cumulative Cases\"\n  },\n  marks: [\n    Plot.line(filtered, {\n    x: \"DateDT\", \n    y: \"CasesCumulativeCNT\", \n    stroke: \"StateDSC\"}),\n    Plot.text(filtered, Plot.selectLast({\n    x: \"DateDT\",\n    y: \"CasesCumulativeCNT\",\n    z: \"StateDSC\",\n    text: \"StateDSC\",\n    textAnchor: \"CasesCumulativeCNT\",\n    })\n    ),\n  ]\n});\n\n\n\n\n\n\n\nfiltered = data.filter(function(data) {\n  return islands.includes(data.StateDSC);\n});"
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "MPX Tracker for North Carolina",

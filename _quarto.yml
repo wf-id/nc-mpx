@@ -10,6 +10,8 @@ site:
     left:
       - href: index.qmd
         text: Home
+      - href: us.qmd
+        
 
 format:
   html:

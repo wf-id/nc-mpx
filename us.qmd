@@ -1,0 +1,72 @@
+---
+title: "MPX in the US"
+execute:
+  eval: true
+  echo: false
+  message: false
+---
+
+
+
+```{ojs}
+data = {
+  const co2data = await FileAttachment('https://raw.githubusercontent.com/wf-id/us-mpx/main/output/mpx.csv')
+    .csv({ typed: true });
+  return co2data.map(d => { 
+    d["Date"] = Date(d["DateDT"]);
+    return d; 
+  });
+}
+```
+
+
+```{ojs}
+//| eval: true
+viewof islands = Inputs.select(data.map(d => d.StateDSC), {
+  multiple: true, 
+  label: "StateDSC", 
+  initialValue: "Alabama",
+  sort: true, 
+  unique: true})
+  
+ //islands
+```
+
+
+```{ojs}
+Inputs.table(filtered)
+```
+
+
+
+
+```{ojs}
+//#| eval: true
+Plot.plot({
+  y: {
+    grid: true,
+    label: "Cumulative Cases"
+  },
+  marks: [
+    Plot.line(filtered, {
+    x: "DateDT", 
+    y: "CasesCumulativeCNT", 
+    stroke: "StateDSC"}),
+    Plot.text(filtered, Plot.selectLast({
+    x: "DateDT",
+    y: "CasesCumulativeCNT",
+    z: "StateDSC",
+    text: "StateDSC",
+    textAnchor: "CasesCumulativeCNT",
+    })
+    ),
+  ]
+});
+```
+
+
+```{ojs}
+filtered = data.filter(function(data) {
+  return islands.includes(data.StateDSC);
+});
+```
