@@ -31,4 +31,6 @@ dat <- stringr::str_remove(unlist(strsplit(date,split = "\r\n"))[5], "\\s+")
 
 dat_out <- data.frame(date = dat, cases = cases, ping_time = ping_time)
 
+dat_out$clean_date <- with(dat_out, as.Date(stringr::str_extract(ping_time, "\\d{4}-\\d{2}-\\d{2}")))
+
 data.table::fwrite(dat_out, here::here("data", "mpx.csv"), append = TRUE)

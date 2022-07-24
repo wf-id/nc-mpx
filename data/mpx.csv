@@ -1,10 +1,10 @@
-date,cases,ping_time
-"Manually entered from https://www.ncdhhs.gov/news/press-releases/2022/06/23/nc-officials-identify-first-case-monkeypox-state",1,2022-06-23-120000
-"Manually entered from https://www.wral.com/monkeypox-case-found-in-mecklenburg-county/20350106/",2,2022-06-26-120000
-"Manually entered from https://www.newsobserver.com/news/local/counties/wake-county/article263229798.html", 3,2022-07-06-120000
-"Manually entered from https://www.rowancountync.gov/CivicAlerts.aspx?AID=1382#:~:text=As%20of%20yesterday%2C%20there%20have,close%20contacts%20have%20been%20notified.",11,2022-07-15-120000
-"Manually entered from https://www.cbs17.com/news/national-news/nc-monkeypox-cases-tick-up-to-17/",17,2022-07-18-120000
-"Data as of July 19, 2022, at 12:00 PM (This information is updated Monday – Friday)",20,2022-07-19-212526
-"Data as of July 20, 2022, at 11:46 AM (This information is updated Monday – Friday)",21,2022-07-20-203430
-"Data as of July 21, 2022, at 12:22 PM(This information is updated Monday – Friday)",24,2022-07-21-193940
-"Data as of July 22, 2022, at 12:00 PM(This information is updated Monday – Friday)",27,2022-07-22-193924
+date,cases,ping_time,clean_date
+Manually entered from https://www.ncdhhs.gov/news/press-releases/2022/06/23/nc-officials-identify-first-case-monkeypox-state,1,2022-06-23-120000,2022-06-23
+Manually entered from https://www.wral.com/monkeypox-case-found-in-mecklenburg-county/20350106/,2,2022-06-26-120000,2022-06-26
+Manually entered from https://www.newsobserver.com/news/local/counties/wake-county/article263229798.html,3,2022-07-06-120000,2022-07-06
+"Manually entered from https://www.rowancountync.gov/CivicAlerts.aspx?AID=1382#:~:text=As%20of%20yesterday%2C%20there%20have,close%20contacts%20have%20been%20notified.",11,2022-07-15-120000,2022-07-15
+Manually entered from https://www.cbs17.com/news/national-news/nc-monkeypox-cases-tick-up-to-17/,17,2022-07-18-120000,2022-07-18
+"Data as of July 19, 2022, at 12:00 PM (This information is updated Monday – Friday)",20,2022-07-19-212526,2022-07-19
+"Data as of July 20, 2022, at 11:46 AM (This information is updated Monday – Friday)",21,2022-07-20-203430,2022-07-20
+"Data as of July 21, 2022, at 12:22 PM(This information is updated Monday – Friday)",24,2022-07-21-193940,2022-07-21
+"Data as of July 22, 2022, at 12:00 PM(This information is updated Monday – Friday)",27,2022-07-22-193924,2022-07-22
