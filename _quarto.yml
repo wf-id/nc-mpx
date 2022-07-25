@@ -4,6 +4,16 @@ project:
 
 site:
   title: "MPX in North Carolina"
+  open-graph: true
+  twitter-card: true
+  reader-mode: true
+  page-footer: 
+    left:
+      - text: "Learn More About the Department"
+        href: "https://www.wakehealth.edu/Specialty/i/Infectious-Diseases"
+    center: 
+      - text: "Disclaimer"
+        href: disclaimer.qmd
   navbar:
     type: dark
     background: primary

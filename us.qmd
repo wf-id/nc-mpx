@@ -6,7 +6,15 @@ execute:
   message: false
 ---
 
+## About
 
+These data provide a longitudinal view of MPX cases by state in the United states.
+These data are pulled from the [Centers for Disease Control and Prevention Monkeypox dashboard](https://www.cdc.gov/poxvirus/monkeypox/response/2022/us-map.html) and stored [in this repository](https://github.com/wf-id/us-mpx).
+
+## Graphics
+
+Select one or more states below to see the table of cases information and an associated graph of cumulative cases.
+Please note that individual state metrics may disagree with those posted on the CDC dashboard due to reporting delays.
 
 ```{ojs}
 data = {
