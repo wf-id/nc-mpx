@@ -1,8 +1,8 @@
-name: Update with Latest Data
+name: Update Website with Quarto
 
 on:
   push:
-      branch: main
+    branches: [main, master]
 
 jobs:
   build:
