@@ -1,2 +1,12 @@
-Male,Female,0-17,18-30,31-50,50+,Black,White,Asian,Hispanic,Non-Hispanic,update_date
-24,0,0,18,31,31,15,9,,0,24,2022-07-21
+description,update_date,count,demographic
+0-17,2022-07-21,0,Age
+18-30,2022-07-21,18,Age
+31-50,2022-07-21,31,Age
+50+,2022-07-21,31,Age
+Asian,2022-07-21,,Race
+Black,2022-07-21,15,Race
+Female,2022-07-21,0,Gender
+Hispanic,2022-07-21,0,Ethnicity
+Male,2022-07-21,24,Gender
+Non-Hispanic,2022-07-21,24,Ethnicity
+White,2022-07-21,9,Race

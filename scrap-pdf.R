@@ -1,12 +1,13 @@
 library(dplyr)
 library(stringr)
 library(pdftools)
+library(data.table)
 
 url <- "https://epi.dph.ncdhhs.gov/cd/docs/2022MonkeypoxSurveillanceData.pdf"
 
 tmp <- tempfile()
 
-download.file(url, tmp)
+download.file(url, tmp, mode = "wb" )
 
 dat_raw <- pdf_text(tmp)
 
@@ -23,8 +24,18 @@ extract_update <- function(x){
 }
 
 
+# targets in the raw text file ----------------------------------------------------------------
+
+
 fields_of_interest <- c("Male", "Female", "0-17", "18-30", "31-50", "50+",
                         "Black", "White", "Asian","Hispanic", "Non-Hispanic")
+
+description_demographic <- c("Gender", "Gender", "Age", "Age", "Age", "Age",
+                             "Race", "Race", "Race", "Ethnicity", "Ethnicity")
+
+
+# go get them ---------------------------------------------------------------------------------
+
 
 dat_extracted <- purrr::map(fields_of_interest, extract_field)
 
@@ -34,4 +45,21 @@ dat_extracted$update_date <- extract_update()
 
 demos <- bind_rows(dat_extracted)
 
-data.table::fwrite(demos, here::here("data", "demos.csv"), append = TRUE)
+# convert -------------------------------------------------------------------------------------
+
+# Converting to a long format so it is more future-proof as the fields evolve
+
+setDT(demos)
+
+demos_long <- melt(demos,variable.name = "description", value.name = "count", id.vars = "update_date")
+
+
+convert_key <- data.table(demographic = description_demographic,
+                          description = fields_of_interest)
+
+demos_long <- merge(demos_long,convert_key, by = "description", all.x = TRUE)
+
+# write it out --------------------------------------------------------------------------------
+# Note append to save space.
+
+data.table::fwrite(demos_long, here::here("data", "demos.csv"), append = TRUE)
