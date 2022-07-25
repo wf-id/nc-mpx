@@ -1,9 +1,9 @@
 name: Update with Latest Data
 
 on:
-  push:
-      paths:
-        - DESCRIPTION
+#  push:
+#      paths:
+#        - DESCRIPTION
   schedule:
     - cron:  '30 19 * * 1-5'
 
