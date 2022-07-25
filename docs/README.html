@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>MPX in North Carolina - MPX Tracker for North Carolina</title>
+<title>MPX in North Carolina – readme</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -56,12 +56,6 @@ ul.task-list{list-style: none;}
 
 
 <link rel="stylesheet" href="styles.css">
-<meta property="og:title" content="MPX in North Carolina - MPX Tracker for North Carolina">
-<meta property="og:description" content="Cases updated daily by NCDHHS Monday through Friday.">
-<meta property="og:site-name" content="MPX in North Carolina">
-<meta name="twitter:title" content="MPX in North Carolina - MPX Tracker for North Carolina">
-<meta name="twitter:description" content="Cases updated daily by NCDHHS Monday through Friday.">
-<meta name="twitter:card" content="summary">
 </head>
 
 <body class="nav-fixed">
@@ -79,7 +73,7 @@ ul.task-list{list-style: none;}
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page">Home</a>
+    <a class="nav-link" href="./index.html">Home</a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./us.html">MPX in the US</a>
@@ -106,44 +100,44 @@ ul.task-list{list-style: none;}
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#data-source" id="toc-data-source" class="nav-link active" data-scroll-target="#data-source">Data Source</a></li>
+  <li><a href="#monkeypox-cases-in-north-carolina" id="toc-monkeypox-cases-in-north-carolina" class="nav-link active" data-scroll-target="#monkeypox-cases-in-north-carolina">Monkeypox Cases in North Carolina</a>
+  <ul class="collapse">
+  <li><a href="#key-functions" id="toc-key-functions" class="nav-link" data-scroll-target="#key-functions">Key Functions</a></li>
+  <li><a href="#key-output" id="toc-key-output" class="nav-link" data-scroll-target="#key-output">Key Output</a></li>
+  <li><a href="#terms-and-conditions" id="toc-terms-and-conditions" class="nav-link" data-scroll-target="#terms-and-conditions">Terms and Conditions</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">MPX Tracker for North Carolina</h1>
-</div>
 
 
-
-<div class="quarto-title-meta">
-
-    
-    
-  </div>
-  
-
-</header>
-
-<p>Cases updated daily by NCDHHS Monday through Friday.</p>
-<div class="cell">
-
-</div>
-<p>These data are current as of 22 July, 2022.</p>
-<div class="cell">
-<div class="cell-output-display">
-<p><img src="index_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
-</div>
-</div>
-<section id="data-source" class="level2">
-<h2 class="anchored" data-anchor-id="data-source">Data Source</h2>
-<p>These data are pulled each weekday from the <a href="https://epi.dph.ncdhhs.gov/cd/diseases/monkeypox.html">North Carolina Department of Health’s Monkeypox webpage</a>.</p>
+<section id="monkeypox-cases-in-north-carolina" class="level1">
+<h1>Monkeypox Cases in North Carolina</h1>
+<p>This repository saves a copy of the posted reported monkeypox (MPX) cases for NC as reported by NCDHHS on <a href="https://epi.dph.ncdhhs.gov/cd/diseases/monkeypox.html">their website</a>.</p>
+<section id="key-functions" class="level2">
+<h2 class="anchored" data-anchor-id="key-functions">Key Functions</h2>
+<ul>
+<li><a href="https://github.com/wf-id/nc-mpx/blob/main/scrape.R">scrape.R</a> saves a local snapshot of the aggregated cases as a json file in the <a href="https://github.com/wf-id/us-mpx/tree/main/data">data</a> directory</li>
+</ul>
+</section>
+<section id="key-output" class="level2">
+<h2 class="anchored" data-anchor-id="key-output">Key Output</h2>
+<ul>
+<li>Cumulative and new daily cases will be available in the <a href="https://github.com/wf-id/nc-mpx/blob/main/output/mpx.csv">mpx.csv</a> file. The date reflects the last available update.</li>
+</ul>
+<p>Additionally a graph of these data are hosted at <a href="https://wf-id.github.io/nc-mpx/">this website</a>.</p>
+</section>
+<section id="terms-and-conditions" class="level2">
+<h2 class="anchored" data-anchor-id="terms-and-conditions">Terms and Conditions</h2>
+<p>The information on this website is for general informational purposes only and SHOULD NOT be relied upon as a substitute for sound professional medical advice, evaluation or care from your physician or other qualified health care provider.</p>
+<p>The Website relies upon publicly available data that do not always agree. Authors hereby disclaims any and all representations and warranties with respect to the Website, including accuracy, fitness for use, reliability, completeness, and non-infringement of third party rights.</p>
+<p>These terms and conditions are subject to change. Your use of the Website constitutes your acceptance of these terms and conditions and any future modifications thereof.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

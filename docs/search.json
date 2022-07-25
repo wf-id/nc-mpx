@@ -1,10 +1,31 @@
 [
   {
+    "objectID": "disclaimer.html",
+    "href": "disclaimer.html",
+    "title": "MPX in North Carolina",
+    "section": "",
+    "text": "Disclaimer: The information on this website is for general informational purposes only and SHOULD NOT be relied upon as a substitute for sound professional medical advice, evaluation or care from your physician or other qualified health care provider."
+  },
+  {
     "objectID": "us.html",
     "href": "us.html",
     "title": "MPX in the US",
     "section": "",
-    "text": "viewof islands = Inputs.select(data.map(d => d.StateDSC), {\n  multiple: true, \n  label: \"StateDSC\", \n  initialValue: \"Alabama\",\n  sort: true, \n  unique: true})\n  \n //islands\n\n\n\n\n\n\n\nInputs.table(filtered)\n\n\n\n\n\n\n\n//#| eval: true\nPlot.plot({\n  y: {\n    grid: true,\n    label: \"Cumulative Cases\"\n  },\n  marks: [\n    Plot.line(filtered, {\n    x: \"DateDT\", \n    y: \"CasesCumulativeCNT\", \n    stroke: \"StateDSC\"}),\n    Plot.text(filtered, Plot.selectLast({\n    x: \"DateDT\",\n    y: \"CasesCumulativeCNT\",\n    z: \"StateDSC\",\n    text: \"StateDSC\",\n    textAnchor: \"CasesCumulativeCNT\",\n    })\n    ),\n  ]\n});\n\n\n\n\n\n\n\nfiltered = data.filter(function(data) {\n  return islands.includes(data.StateDSC);\n});"
+    "text": "These data provide a longitudinal view of MPX cases by state in the United states. These data are pulled from the Centers for Disease Control and Prevention Monkeypox dashboard and stored in this repository."
+  },
+  {
+    "objectID": "us.html#graphics",
+    "href": "us.html#graphics",
+    "title": "MPX in the US",
+    "section": "Graphics",
+    "text": "Graphics\nSelect one or more states below to see the table of cases information and an associated graph of cumulative cases. Please note that individual state metrics may disagree with those posted on the CDC dashboard due to reporting delays.\n\ndata = {\n  const co2data = await FileAttachment('https://raw.githubusercontent.com/wf-id/us-mpx/main/output/mpx.csv')\n    .csv({ typed: true });\n  return co2data.map(d => { \n    d[\"Date\"] = Date(d[\"DateDT\"]);\n    return d; \n  });\n}\n\n\n\n\n\n\n\nviewof islands = Inputs.select(data.map(d => d.StateDSC), {\n  multiple: true, \n  label: \"StateDSC\", \n  initialValue: \"Alabama\",\n  sort: true, \n  unique: true})\n  \n //islands\n\n\n\n\n\n\n\nInputs.table(filtered)\n\n\n\n\n\n\n\n//#| eval: true\nPlot.plot({\n  y: {\n    grid: true,\n    label: \"Cumulative Cases\"\n  },\n  marks: [\n    Plot.line(filtered, {\n    x: \"DateDT\", \n    y: \"CasesCumulativeCNT\", \n    stroke: \"StateDSC\"}),\n    Plot.text(filtered, Plot.selectLast({\n    x: \"DateDT\",\n    y: \"CasesCumulativeCNT\",\n    z: \"StateDSC\",\n    text: \"StateDSC\",\n    textAnchor: \"CasesCumulativeCNT\",\n    })\n    ),\n  ]\n});\n\n\n\n\n\n\n\nfiltered = data.filter(function(data) {\n  return islands.includes(data.StateDSC);\n});"
+  },
+  {
+    "objectID": "README.html",
+    "href": "README.html",
+    "title": "MPX in North Carolina",
+    "section": "",
+    "text": "This repository saves a copy of the posted reported monkeypox (MPX) cases for NC as reported by NCDHHS on their website.\n\n\n\nscrape.R saves a local snapshot of the aggregated cases as a json file in the data directory\n\n\n\n\n\nCumulative and new daily cases will be available in the mpx.csv file. The date reflects the last available update.\n\nAdditionally a graph of these data are hosted at this website.\n\n\n\nThe information on this website is for general informational purposes only and SHOULD NOT be relied upon as a substitute for sound professional medical advice, evaluation or care from your physician or other qualified health care provider.\nThe Website relies upon publicly available data that do not always agree. Authors hereby disclaims any and all representations and warranties with respect to the Website, including accuracy, fitness for use, reliability, completeness, and non-infringement of third party rights.\nThese terms and conditions are subject to change. Your use of the Website constitutes your acceptance of these terms and conditions and any future modifications thereof."
   },
   {
     "objectID": "index.html",
