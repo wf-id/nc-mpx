@@ -5,7 +5,7 @@ library(data.table)
 
 url <- "https://epi.dph.ncdhhs.gov/cd/docs/2022MonkeypoxSurveillanceData.pdf"
 
-tmp <- tempfile()
+tmp <- file.path("archive", paste0(format(Sys.time(), "%Y%m%d-%H%S"),".pdf"))
 
 download.file(url, tmp, mode = "wb" )
 
@@ -19,19 +19,24 @@ extract_field <- function(x){
 }
 
 extract_update <- function(x){
-  lubridate::mdy(str_remove(str_extract(str_trim(dat_raw_line[which(grepl("available as of ",dat_raw_line))[1]]),
-              "\\D+ \\d{1,2}, \\d{4}"), "Includes data available as of "))
+  z <- dat_raw_line[which(grepl("\\d{1,2}/\\d{1,2}/\\d{2}", dat_raw_line))]
+  z <- str_trim(z)
+  lubridate::mdy(str_extract(z,"\\d{1,2}/\\d{1,2}/\\d{2}"))
 }
 
 
 # targets in the raw text file ----------------------------------------------------------------
 
 
-fields_of_interest <- c("Male", "Female", "0-17", "18-30", "31-50", "50+",
-                        "Black", "White", "Asian","Hispanic", "Non-Hispanic")
+fields_of_interest <- c("Male", "Female", "Other than sex assigned at",
+                        "0-17", "18-30", "31-50", "50+",
+                        "Black", "White", "Asian", "American Indian/Alaska",
+                        "Hispanic", "Non-Hispanic", "Unknown")
 
-description_demographic <- c("Gender", "Gender", "Age", "Age", "Age", "Age",
-                             "Race", "Race", "Race", "Ethnicity", "Ethnicity")
+description_demographic <- c("Gender", "Gender", "Gender",
+                             "Age", "Age", "Age", "Age",
+                             "Race", "Race", "Race", "Race",
+                             "Ethnicity", "Ethnicity", "Ethnicity")
 
 
 # go get them ---------------------------------------------------------------------------------

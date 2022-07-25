@@ -10,3 +10,17 @@ Hispanic,2022-07-21,0,Ethnicity
 Male,2022-07-21,24,Gender
 Non-Hispanic,2022-07-21,24,Ethnicity
 White,2022-07-21,9,Race
+0-17,2022-07-25,0,Age
+18-30,2022-07-25,18,Age
+31-50,2022-07-25,31,Age
+50+,2022-07-25,31,Age
+American Indian/Alaska,2022-07-25,1,Race
+Asian,2022-07-25,1,Race
+Black,2022-07-25,20,Race
+Female,2022-07-25,0,Gender
+Hispanic,2022-07-25,0,Ethnicity
+Male,2022-07-25,34,Gender
+Non-Hispanic,2022-07-25,32,Ethnicity
+Other than sex assigned at,2022-07-25,0,Gender
+Unknown,2022-07-25,2,Ethnicity
+White,2022-07-25,12,Race
