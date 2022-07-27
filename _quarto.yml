@@ -4,6 +4,8 @@ project:
 
 site:
   title: "MPX in North Carolina"
+  site-url: "https://mpx.wakeforestid.com"
+  favicon: assets/wfsom.ico
   open-graph: true
   twitter-card: true
   reader-mode: true
@@ -17,6 +19,8 @@ site:
   navbar:
     type: dark
     background: primary
+    title: false
+    logo: assets/awfbh-header-logo-white-invert.png
     left:
       - href: index.qmd
         text: Home
