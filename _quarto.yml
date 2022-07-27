@@ -25,6 +25,9 @@ site:
 
 format:
   html:
-    theme: flatly
+    toct: true
+    code-copy: true
+    code-overflow: wrap
+    theme: [cosmo, theme.scss]
     css: styles.css
-    toc: true
+    after-body: "assets/"
