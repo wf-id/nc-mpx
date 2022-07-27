@@ -17,13 +17,24 @@ dat <- fread(here::here("data", "mpx.csv"))
 
 dat$clean_date <- with(dat, as.Date(stringr::str_extract(ping_time, "\\d{4}-\\d{2}-\\d{2}")))
 
-
+dat$date_n <- as.numeric(dat$clean_date)
 
 last_available <- format(max(dat$clean_date), "%d %B, %Y")
+
+fit <- glm(cases ~ date_n, data = dat, family = quasipoisson())
+
+med_est <-  -log(1/2)/coef(fit)[2]
+
+med_se <- -log(1/2)/ confint(fit,parm = "date_n")
+
+doubling_phrase <- sprintf("%s (95%% CI, %s-%s)",
+                          round(med_est,1), round(med_se[2],1),
+                           round(med_se[1],1))
 
 ```
 
 These data are current as of `r last_available`.
+Current case incidence suggests a doubling time of `r doubling_phrase` days.
 
 ```{r}
 ggplot(dat, aes(x = clean_date, cases))+

@@ -41,12 +41,6 @@ viewof islands = Inputs.select(data.map(d => d.StateDSC), {
 ```
 
 
-```{ojs}
-Inputs.table(filtered)
-```
-
-
-
 
 ```{ojs}
 //#| eval: true
@@ -77,4 +71,8 @@ Plot.plot({
 filtered = data.filter(function(data) {
   return islands.includes(data.StateDSC);
 });
+```
+
+```{ojs}
+Inputs.table(filtered)
 ```
