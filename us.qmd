@@ -11,6 +11,40 @@ execute:
 These data provide a longitudinal view of MPX cases by state in the United states.
 These data are pulled from the [Centers for Disease Control and Prevention Monkeypox dashboard](https://www.cdc.gov/poxvirus/monkeypox/response/2022/us-map.html) and stored [in this repository](https://github.com/wf-id/us-mpx).
 
+## Overall Incidence
+
+```{ojs}
+overall = {
+  const co2data = await FileAttachment('https://raw.githubusercontent.com/wf-id/us-mpx/main/output/us-incidence.csv')
+    .csv({ typed: true });
+  return co2data.map(d => { 
+    d["Date"] = Date(d["ReportDT"]);
+    return d; 
+  });
+}
+```
+
+
+```{ojs}
+//#| eval: true
+Plot.plot({
+  y: {
+    grid: true,
+    label: "Reported Cases"
+  },
+  x: {
+    label: "Epi Date
+  },
+  marks: [
+    Plot.line(overall, {
+    x: "EpidateDT", 
+    y: "CaseCNT"}),
+  ]
+});
+```
+
+
+
 ## Graphics
 
 Select one or more states below to see the table of cases information and an associated graph of cumulative cases.
