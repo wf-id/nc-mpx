@@ -7,9 +7,11 @@ slugify_date <- function(x){
   x
 }
 
+# On 10 August 2022, NCDHHS went from "https://epi.dph.ncdhhs.gov/cd/diseases/monkeypox.html"
+
 ping_time <- slugify_date(Sys.time())
 
-url <- "https://epi.dph.ncdhhs.gov/cd/diseases/monkeypox.html"
+url <- "https://www.ncdhhs.gov/divisions/public-health/monkeypox"
 
 ses <- session(url)
 
@@ -17,20 +19,28 @@ html_text <- ses %>%
   read_html()
 
 cases <- html_text %>% 
-  html_nodes(xpath = '//*[@id="blueWrapper"]/div[2]/div[3]') %>% 
-  html_text()
+  html_nodes(xpath = '//*[@id="block-block-block-nc-base-theme-nc-site-child-theme-system-main"]/div/article/div/div/div/div[1]/div/div/div/div/div/h3') %>% 
+  html_text() |> 
+  stringr::str_extract(pattern = "\\d+") |> 
+  as.integer()
 
 date <- html_text %>% 
-  html_nodes(xpath = '//*[@id="blueWrapper"]/div[2]') %>% 
+  html_nodes(xpath = '//*[@id="block-block-block-nc-base-theme-nc-site-child-theme-system-main"]/div/article/div/div/div/div[1]/div/div/div/div/div/span[2]') %>% 
   html_text()
 
-dat <- stringr::str_remove(unlist(strsplit(date,split = "\r\n"))[5], "\\s+")
+dat <- stringr::str_remove(unlist(strsplit(date,split = "\r\n"))[1], "\\s+")
 
 
 # write outputs -----------------------------------------------------------
 
 dat_out <- data.frame(date = dat, cases = cases, ping_time = ping_time)
 
-dat_out$clean_date <- with(dat_out, as.Date(stringr::str_extract(ping_time, "\\d{4}-\\d{2}-\\d{2}")))
+dat_out$clean_date <- data.table::as.IDate(with(dat_out, as.Date(stringr::str_extract(ping_time, "\\d{4}-\\d{2}-\\d{2}"))))
 
-data.table::fwrite(dat_out, here::here("data", "mpx.csv"), append = TRUE)
+dat_old <-data.table::fread(here::here("data", "mpx.csv"))
+
+dat_combined <- rbind(dat_old, dat_out)
+
+dat_combined <- dat_combined[,tail(.SD,1), by = "clean_date"]
+
+data.table::fwrite(dat_combined, here::here("data", "mpx.csv"))

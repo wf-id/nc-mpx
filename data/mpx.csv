@@ -1,22 +1,23 @@
-date,cases,ping_time,clean_date
-Manually entered from https://www.ncdhhs.gov/news/press-releases/2022/06/23/nc-officials-identify-first-case-monkeypox-state,1,2022-06-23-120000,2022-06-23
-Manually entered from https://www.wral.com/monkeypox-case-found-in-mecklenburg-county/20350106/,2,2022-06-26-120000,2022-06-26
-Manually entered from https://www.newsobserver.com/news/local/counties/wake-county/article263229798.html,3,2022-07-06-120000,2022-07-06
-"Manually entered from https://www.rowancountync.gov/CivicAlerts.aspx?AID=1382#:~:text=As%20of%20yesterday%2C%20there%20have,close%20contacts%20have%20been%20notified.",11,2022-07-15-120000,2022-07-15
-Manually entered from https://www.cbs17.com/news/national-news/nc-monkeypox-cases-tick-up-to-17/,17,2022-07-18-120000,2022-07-18
-"Data as of July 19, 2022, at 12:00 PM (This information is updated Monday – Friday)",20,2022-07-19-212526,2022-07-19
-"Data as of July 20, 2022, at 11:46 AM (This information is updated Monday – Friday)",21,2022-07-20-203430,2022-07-20
-"Data as of July 21, 2022, at 12:22 PM(This information is updated Monday – Friday)",24,2022-07-21-193940,2022-07-21
-"Data as of July 22, 2022, at 12:00 PM(This information is updated Monday – Friday)",27,2022-07-22-193924,2022-07-22
-"Data as of July 25, 2022, at 12:48 PM(This information is updated Monday – Friday)",34,2022-07-25-193805,2022-07-25
-"Data as of July 26, 2022, at 11:18 AM(This information is updated Monday – Friday)",38,2022-07-26-193748,2022-07-26
-"Data as of July 27, 2022, at 11:52 AM(This information is updated Monday – Friday)",40,2022-07-27-193818,2022-07-27
-"Data as of July 28, 2022, at 12:00 PM(This information is updated Monday – Friday)",46,2022-07-28-193906,2022-07-28
-"Data as of July 29, 2022, at 12:15 PM(This information is updated Monday – Friday)",53,2022-07-29-193752,2022-07-29
-"Data as of August 1, 2022, at 12:45 PM(This information is updated Monday – Friday)",60,2022-08-01-193759,2022-08-01
-"Data as of August 2, 2022, at 12:45 PM(This information is updated Monday – Friday)",69,2022-08-02-185802,2022-08-02
-"Data as of August 3, 2022, at 12:30 PM(This information is updated Monday – Friday)",72,2022-08-03-204029,2022-08-03
-"Data as of August 4, 2022, at 12:11 PM(This information is updated Monday – Friday)",86,2022-08-04-204107,2022-08-04
-"Data as of August 5, 2022, at 12:50 PM(This information is updated Monday – Friday)",95,2022-08-05-204102,2022-08-05
-"Data as of August 8, 2022, at 2:00 PM(This information is updated Monday – Friday)",111,2022-08-08-204130,2022-08-08
-"Data as of August 9, 2022, at 12:04 PM(This information is updated Monday – Friday)",114,2022-08-09-201802,2022-08-09
+clean_date,date,cases,ping_time
+2022-06-23,Manually entered from https://www.ncdhhs.gov/news/press-releases/2022/06/23/nc-officials-identify-first-case-monkeypox-state,1,2022-06-23-120000
+2022-06-26,Manually entered from https://www.wral.com/monkeypox-case-found-in-mecklenburg-county/20350106/,2,2022-06-26-120000
+2022-07-06,Manually entered from https://www.newsobserver.com/news/local/counties/wake-county/article263229798.html,3,2022-07-06-120000
+2022-07-15,"Manually entered from https://www.rowancountync.gov/CivicAlerts.aspx?AID=1382#:~:text=As%20of%20yesterday%2C%20there%20have,close%20contacts%20have%20been%20notified.",11,2022-07-15-120000
+2022-07-18,Manually entered from https://www.cbs17.com/news/national-news/nc-monkeypox-cases-tick-up-to-17/,17,2022-07-18-120000
+2022-07-19,"Data as of July 19, 2022, at 12:00 PM (This information is updated Monday – Friday)",20,2022-07-19-212526
+2022-07-20,"Data as of July 20, 2022, at 11:46 AM (This information is updated Monday – Friday)",21,2022-07-20-203430
+2022-07-21,"Data as of July 21, 2022, at 12:22 PM(This information is updated Monday – Friday)",24,2022-07-21-193940
+2022-07-22,"Data as of July 22, 2022, at 12:00 PM(This information is updated Monday – Friday)",27,2022-07-22-193924
+2022-07-25,"Data as of July 25, 2022, at 12:48 PM(This information is updated Monday – Friday)",34,2022-07-25-193805
+2022-07-26,"Data as of July 26, 2022, at 11:18 AM(This information is updated Monday – Friday)",38,2022-07-26-193748
+2022-07-27,"Data as of July 27, 2022, at 11:52 AM(This information is updated Monday – Friday)",40,2022-07-27-193818
+2022-07-28,"Data as of July 28, 2022, at 12:00 PM(This information is updated Monday – Friday)",46,2022-07-28-193906
+2022-07-29,"Data as of July 29, 2022, at 12:15 PM(This information is updated Monday – Friday)",53,2022-07-29-193752
+2022-08-01,"Data as of August 1, 2022, at 12:45 PM(This information is updated Monday – Friday)",60,2022-08-01-193759
+2022-08-02,"Data as of August 2, 2022, at 12:45 PM(This information is updated Monday – Friday)",69,2022-08-02-185802
+2022-08-03,"Data as of August 3, 2022, at 12:30 PM(This information is updated Monday – Friday)",72,2022-08-03-204029
+2022-08-04,"Data as of August 4, 2022, at 12:11 PM(This information is updated Monday – Friday)",86,2022-08-04-204107
+2022-08-05,"Data as of August 5, 2022, at 12:50 PM(This information is updated Monday – Friday)",95,2022-08-05-204102
+2022-08-08,"Data as of August 8, 2022, at 2:00 PM(This information is updated Monday – Friday)",111,2022-08-08-204130
+2022-08-09,"Data as of August 9, 2022, at 12:04 PM(This information is updated Monday – Friday)",114,2022-08-09-201802
+2022-08-10,"Dataas of August 10, 2022, at 10:56 AM. ",122,2022-08-10-123713
