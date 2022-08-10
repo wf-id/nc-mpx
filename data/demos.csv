@@ -1,40 +1,60 @@
 description,update_date,count,demographic
-0-17,2022-07-21,0,Age
-18-30,2022-07-21,18,Age
-31-50,2022-07-21,31,Age
-50+,2022-07-21,31,Age
-Asian,2022-07-21,,Race
-Black,2022-07-21,15,Race
-Female,2022-07-21,0,Gender
-Hispanic,2022-07-21,0,Ethnicity
-Male,2022-07-21,24,Gender
-Non-Hispanic,2022-07-21,24,Ethnicity
-White,2022-07-21,9,Race
-0-17,2022-07-25,0,Age
-18-30,2022-07-25,18,Age
-31-50,2022-07-25,31,Age
-50+,2022-07-25,31,Age
+0-17,2022-07-25,,Age
+18-29,2022-07-25,,Age
+18-30,2022-07-25,13,Age
+30-49,2022-07-25,,Age
+31-50,2022-07-25,19,Age
+50+,2022-07-25,,Age
+51+,2022-07-25,2,Age
 American Indian/Alaska,2022-07-25,1,Race
 Asian,2022-07-25,1,Race
 Black,2022-07-25,20,Race
-Female,2022-07-25,0,Gender
-Hispanic,2022-07-25,0,Ethnicity
+Female,2022-07-25,,Gender
+Hispanic,2022-07-25,,Ethnicity
 Male,2022-07-25,34,Gender
+Multi-racial,2022-07-25,,Race
 Non-Hispanic,2022-07-25,32,Ethnicity
-Other than sex assigned at,2022-07-25,0,Gender
+Other,2022-07-25,,Race
+Other than sex assigned at,2022-07-25,,Gender
 Unknown,2022-07-25,2,Ethnicity
 White,2022-07-25,12,Race
-0-17,2022-08-01,0,Age
-18-30,2022-08-01,18,Age
-31-50,2022-08-01,31,Age
-50+,2022-08-01,31,Age
+0-17,2022-08-01,,Age
+18-29,2022-08-01,,Age
+18-30,2022-08-01,24,Age
+30-49,2022-08-01,,Age
+31-50,2022-08-01,33,Age
+50+,2022-08-01,,Age
+51+,2022-08-01,3,Age
 American Indian/Alaska,2022-08-01,1,Race
 Asian,2022-08-01,1,Race
 Black,2022-08-01,41,Race
-Female,2022-08-01,0,Gender
+Female,2022-08-01,,Gender
 Hispanic,2022-08-01,1,Ethnicity
 Male,2022-08-01,60,Gender
+Multi-racial,2022-08-01,,Race
 Non-Hispanic,2022-08-01,57,Ethnicity
-Other than sex assigned at,2022-08-01,0,Gender
+Other,2022-08-01,,Race
+Other than sex assigned at,2022-08-01,,Gender
+Total,2022-08-01,,Total
 Unknown,2022-08-01,3,Ethnicity
 White,2022-08-01,14,Race
+0-17,2022-08-09,,Age
+18-29,2022-08-09,41,Age
+18-30,2022-08-09,,Age
+30-49,2022-08-09,65,Age
+31-50,2022-08-09,,Age
+50+,2022-08-09,5,Age
+51+,2022-08-09,,Age
+American Indian/Alaska,2022-08-09,1,Race
+Asian,2022-08-09,,Race
+Black,2022-08-09,78,Race
+Female,2022-08-09,,Gender
+Hispanic,2022-08-09,4,Ethnicity
+Male,2022-08-09,111,Gender
+Multi-racial,2022-08-09,4,Race
+Non-Hispanic,2022-08-09,95,Ethnicity
+Other,2022-08-09,,Race
+Other than sex assigned at,2022-08-09,,Gender
+Total,2022-08-09,,Total
+Unknown,2022-08-09,4,Ethnicity
+White,2022-08-09,21,Race

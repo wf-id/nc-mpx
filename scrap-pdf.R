@@ -13,9 +13,11 @@ dat_raw <- pdf_text(tmp)
 
 dat_raw_line <- str_split(dat_raw, "\n")[[1]]
 
+dat_raw_line <- str_replace_all(dat_raw_line, "\\+", "_")
 
 extract_field <- function(x){
-  str_extract(str_trim(dat_raw_line[which(grepl(x,dat_raw_line))[1]]), "\\d+")
+  x <- stringr::str_replace(x, "\\+", "_")
+  str_extract(str_trim(dat_raw_line[which(grepl(x,dat_raw_line))[1]]), "\\d+(?= \\()")
 }
 
 extract_update <- function(x){
@@ -28,19 +30,19 @@ extract_update <- function(x){
 # targets in the raw text file ----------------------------------------------------------------
 
 
-fields_of_interest <- c("Male", "Female", "Other than sex assigned at",
-                        "0-17", "18-30", "31-50", "50+",
-                        "Black", "White", "Asian", "American Indian/Alaska",
+fields_of_interest <- c("Total","Male", "Female", "Other than sex assigned at",
+                        "0-17", "18-30", "18-29", "30-49","31-50", "50+","51+",
+                        "Black", "White","Multi-racial", "Asian", "American Indian/Alaska", "Other",
                         "Hispanic", "Non-Hispanic", "Unknown")
 
-description_demographic <- c("Gender", "Gender", "Gender",
-                             "Age", "Age", "Age", "Age",
-                             "Race", "Race", "Race", "Race",
+description_demographic <- c("Total","Gender", "Gender", "Gender",
+                             "Age", "Age", "Age", "Age", "Age", "Age", "Age",
+                             "Race", "Race", "Race","Race", "Race", "Race",
                              "Ethnicity", "Ethnicity", "Ethnicity")
 
 
 # go get them ---------------------------------------------------------------------------------
-
+extract_field("18-29")
 
 dat_extracted <- purrr::map(fields_of_interest, extract_field)
 
