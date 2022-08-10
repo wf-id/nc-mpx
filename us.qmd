@@ -33,7 +33,7 @@ Plot.plot({
     label: "Reported Cases"
   },
   x: {
-    label: "Epi Date
+    label: "Epi Date"
   },
   marks: [
     Plot.line(overall, {

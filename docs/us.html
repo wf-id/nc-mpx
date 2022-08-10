@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.0.37">
+<meta name="generator" content="quarto-1.0.38">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -194,71 +194,73 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2 class="anchored" data-anchor-id="about">About</h2>
 <p>These data provide a longitudinal view of MPX cases by state in the United states. These data are pulled from the <a href="https://www.cdc.gov/poxvirus/monkeypox/response/2022/us-map.html">Centers for Disease Control and Prevention Monkeypox dashboard</a> and stored <a href="https://github.com/wf-id/us-mpx">in this repository</a>.</p>
 </section>
-<section id="graphics" class="level2">
-<h2 class="anchored" data-anchor-id="graphics">Graphics</h2>
-<p>Select one or more states below to see the table of cases information and an associated graph of cumulative cases. Please note that individual state metrics may disagree with those posted on the CDC dashboard due to reporting delays.</p>
+<section id="overall-incidence" class="level2">
+<h2 class="anchored" data-anchor-id="overall-incidence">Overall Incidence</h2>
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb1" data-startfrom="19" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 18;"><span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> {</span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> co2data <span class="op">=</span> <span class="cf">await</span> <span class="fu">FileAttachment</span>(<span class="st">'https://raw.githubusercontent.com/wf-id/us-mpx/main/output/mpx.csv'</span>)</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">csv</span>({ <span class="dt">typed</span><span class="op">:</span> <span class="kw">true</span> })<span class="op">;</span></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> co2data<span class="op">.</span><span class="fu">map</span>(d <span class="kw">=&gt;</span> { </span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>    d[<span class="st">"Date"</span>] <span class="op">=</span> <span class="bu">Date</span>(d[<span class="st">"DateDT"</span>])<span class="op">;</span></span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> d<span class="op">;</span> </span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>  })<span class="op">;</span></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb1" data-startfrom="16" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 15;"><span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>overall <span class="op">=</span> {</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> co2data <span class="op">=</span> <span class="cf">await</span> <span class="fu">FileAttachment</span>(<span class="st">'https://raw.githubusercontent.com/wf-id/us-mpx/main/output/us-incidence.csv'</span>)</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">csv</span>({ <span class="dt">typed</span><span class="op">:</span> <span class="kw">true</span> })<span class="op">;</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> co2data<span class="op">.</span><span class="fu">map</span>(d <span class="kw">=&gt;</span> { </span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    d[<span class="st">"Date"</span>] <span class="op">=</span> <span class="bu">Date</span>(d[<span class="st">"ReportDT"</span>])<span class="op">;</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> d<span class="op">;</span> </span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>  })<span class="op">;</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div id="ojs-cell-1" data-nodetype="declaration">
 
 </div>
 </div>
 </div>
+<div class="cell">
+<div class="sourceCode cell-code hidden" id="cb2" data-startfrom="28" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 27;"><span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a><span class="co">//#| eval: true</span></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>Plot<span class="op">.</span><span class="fu">plot</span>({</span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>  <span class="dt">y</span><span class="op">:</span> {</span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>    <span class="dt">grid</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>    <span class="dt">label</span><span class="op">:</span> <span class="st">"Reported Cases"</span></span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>  }<span class="op">,</span></span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>  <span class="dt">x</span><span class="op">:</span> {</span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>    <span class="dt">label</span><span class="op">:</span> <span class="st">"Epi Date"</span></span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>  }<span class="op">,</span></span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>  <span class="dt">marks</span><span class="op">:</span> [</span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">line</span>(overall<span class="op">,</span> {</span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>    <span class="dt">x</span><span class="op">:</span> <span class="st">"EpidateDT"</span><span class="op">,</span> </span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>    <span class="dt">y</span><span class="op">:</span> <span class="st">"CaseCNT"</span>})<span class="op">,</span></span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>  ]</span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div id="ojs-cell-2" data-nodetype="expression">
+
+</div>
+</div>
+</div>
+</section>
+<section id="graphics" class="level2">
+<h2 class="anchored" data-anchor-id="graphics">Graphics</h2>
+<p>Select one or more states below to see the table of cases information and an associated graph of cumulative cases. Please note that individual state metrics may disagree with those posted on the CDC dashboard due to reporting delays.</p>
+<div class="cell">
+<div class="sourceCode cell-code hidden" id="cb3" data-startfrom="53" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 52;"><span id="cb3-53"><a href="#cb3-53" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> {</span>
+<span id="cb3-54"><a href="#cb3-54" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> co2data <span class="op">=</span> <span class="cf">await</span> <span class="fu">FileAttachment</span>(<span class="st">'https://raw.githubusercontent.com/wf-id/us-mpx/main/output/mpx.csv'</span>)</span>
+<span id="cb3-55"><a href="#cb3-55" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">csv</span>({ <span class="dt">typed</span><span class="op">:</span> <span class="kw">true</span> })<span class="op">;</span></span>
+<span id="cb3-56"><a href="#cb3-56" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> co2data<span class="op">.</span><span class="fu">map</span>(d <span class="kw">=&gt;</span> { </span>
+<span id="cb3-57"><a href="#cb3-57" aria-hidden="true" tabindex="-1"></a>    d[<span class="st">"Date"</span>] <span class="op">=</span> <span class="bu">Date</span>(d[<span class="st">"DateDT"</span>])<span class="op">;</span></span>
+<span id="cb3-58"><a href="#cb3-58" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> d<span class="op">;</span> </span>
+<span id="cb3-59"><a href="#cb3-59" aria-hidden="true" tabindex="-1"></a>  })<span class="op">;</span></span>
+<span id="cb3-60"><a href="#cb3-60" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div id="ojs-cell-3" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
 <div class="cell" data-eval="true">
-<div class="sourceCode cell-code hidden" id="cb2" data-startfrom="32" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 31;"><span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>viewof islands <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">select</span>(data<span class="op">.</span><span class="fu">map</span>(d <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">StateDSC</span>)<span class="op">,</span> {</span>
-<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>  <span class="dt">multiple</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span> </span>
-<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>  <span class="dt">label</span><span class="op">:</span> <span class="st">"StateDSC"</span><span class="op">,</span> </span>
-<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>  <span class="dt">initialValue</span><span class="op">:</span> <span class="st">"Alabama"</span><span class="op">,</span></span>
-<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>  <span class="dt">sort</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span> </span>
-<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>  <span class="dt">unique</span><span class="op">:</span> <span class="kw">true</span>})</span>
-<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a> <span class="co">//islands</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<div id="ojs-cell-2" data-nodetype="declaration">
-
-</div>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code hidden" id="cb3" data-startfrom="45" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 44;"><span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a><span class="co">//#| eval: true</span></span>
-<span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a>Plot<span class="op">.</span><span class="fu">plot</span>({</span>
-<span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a>  <span class="dt">y</span><span class="op">:</span> {</span>
-<span id="cb3-48"><a href="#cb3-48" aria-hidden="true" tabindex="-1"></a>    <span class="dt">grid</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></span>
-<span id="cb3-49"><a href="#cb3-49" aria-hidden="true" tabindex="-1"></a>    <span class="dt">label</span><span class="op">:</span> <span class="st">"Cumulative Cases"</span></span>
-<span id="cb3-50"><a href="#cb3-50" aria-hidden="true" tabindex="-1"></a>  }<span class="op">,</span></span>
-<span id="cb3-51"><a href="#cb3-51" aria-hidden="true" tabindex="-1"></a>  <span class="dt">marks</span><span class="op">:</span> [</span>
-<span id="cb3-52"><a href="#cb3-52" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">line</span>(filtered<span class="op">,</span> {</span>
-<span id="cb3-53"><a href="#cb3-53" aria-hidden="true" tabindex="-1"></a>    <span class="dt">x</span><span class="op">:</span> <span class="st">"DateDT"</span><span class="op">,</span> </span>
-<span id="cb3-54"><a href="#cb3-54" aria-hidden="true" tabindex="-1"></a>    <span class="dt">y</span><span class="op">:</span> <span class="st">"CasesCumulativeCNT"</span><span class="op">,</span> </span>
-<span id="cb3-55"><a href="#cb3-55" aria-hidden="true" tabindex="-1"></a>    <span class="dt">stroke</span><span class="op">:</span> <span class="st">"StateDSC"</span>})<span class="op">,</span></span>
-<span id="cb3-56"><a href="#cb3-56" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">text</span>(filtered<span class="op">,</span> Plot<span class="op">.</span><span class="fu">selectLast</span>({</span>
-<span id="cb3-57"><a href="#cb3-57" aria-hidden="true" tabindex="-1"></a>    <span class="dt">x</span><span class="op">:</span> <span class="st">"DateDT"</span><span class="op">,</span></span>
-<span id="cb3-58"><a href="#cb3-58" aria-hidden="true" tabindex="-1"></a>    <span class="dt">y</span><span class="op">:</span> <span class="st">"CasesCumulativeCNT"</span><span class="op">,</span></span>
-<span id="cb3-59"><a href="#cb3-59" aria-hidden="true" tabindex="-1"></a>    <span class="dt">z</span><span class="op">:</span> <span class="st">"StateDSC"</span><span class="op">,</span></span>
-<span id="cb3-60"><a href="#cb3-60" aria-hidden="true" tabindex="-1"></a>    <span class="dt">text</span><span class="op">:</span> <span class="st">"StateDSC"</span><span class="op">,</span></span>
-<span id="cb3-61"><a href="#cb3-61" aria-hidden="true" tabindex="-1"></a>    <span class="dt">textAnchor</span><span class="op">:</span> <span class="st">"CasesCumulativeCNT"</span><span class="op">,</span></span>
-<span id="cb3-62"><a href="#cb3-62" aria-hidden="true" tabindex="-1"></a>    })</span>
-<span id="cb3-63"><a href="#cb3-63" aria-hidden="true" tabindex="-1"></a>    )<span class="op">,</span></span>
-<span id="cb3-64"><a href="#cb3-64" aria-hidden="true" tabindex="-1"></a>  ]</span>
-<span id="cb3-65"><a href="#cb3-65" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<div id="ojs-cell-3" data-nodetype="expression">
-
-</div>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code hidden" id="cb4" data-startfrom="70" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 69;"><span id="cb4-70"><a href="#cb4-70" aria-hidden="true" tabindex="-1"></a>filtered <span class="op">=</span> data<span class="op">.</span><span class="fu">filter</span>(<span class="kw">function</span>(data) {</span>
-<span id="cb4-71"><a href="#cb4-71" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> islands<span class="op">.</span><span class="fu">includes</span>(data<span class="op">.</span><span class="at">StateDSC</span>)<span class="op">;</span></span>
-<span id="cb4-72"><a href="#cb4-72" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb4" data-startfrom="66" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 65;"><span id="cb4-66"><a href="#cb4-66" aria-hidden="true" tabindex="-1"></a>viewof islands <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">select</span>(data<span class="op">.</span><span class="fu">map</span>(d <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">StateDSC</span>)<span class="op">,</span> {</span>
+<span id="cb4-67"><a href="#cb4-67" aria-hidden="true" tabindex="-1"></a>  <span class="dt">multiple</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span> </span>
+<span id="cb4-68"><a href="#cb4-68" aria-hidden="true" tabindex="-1"></a>  <span class="dt">label</span><span class="op">:</span> <span class="st">"StateDSC"</span><span class="op">,</span> </span>
+<span id="cb4-69"><a href="#cb4-69" aria-hidden="true" tabindex="-1"></a>  <span class="dt">initialValue</span><span class="op">:</span> <span class="st">"Alabama"</span><span class="op">,</span></span>
+<span id="cb4-70"><a href="#cb4-70" aria-hidden="true" tabindex="-1"></a>  <span class="dt">sort</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span> </span>
+<span id="cb4-71"><a href="#cb4-71" aria-hidden="true" tabindex="-1"></a>  <span class="dt">unique</span><span class="op">:</span> <span class="kw">true</span>})</span>
+<span id="cb4-72"><a href="#cb4-72" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-73"><a href="#cb4-73" aria-hidden="true" tabindex="-1"></a> <span class="co">//islands</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div id="ojs-cell-4" data-nodetype="declaration">
 
@@ -266,9 +268,47 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb5" data-startfrom="76" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 75;"><span id="cb5-76"><a href="#cb5-76" aria-hidden="true" tabindex="-1"></a>Inputs<span class="op">.</span><span class="fu">table</span>(filtered)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb5" data-startfrom="79" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 78;"><span id="cb5-79"><a href="#cb5-79" aria-hidden="true" tabindex="-1"></a><span class="co">//#| eval: true</span></span>
+<span id="cb5-80"><a href="#cb5-80" aria-hidden="true" tabindex="-1"></a>Plot<span class="op">.</span><span class="fu">plot</span>({</span>
+<span id="cb5-81"><a href="#cb5-81" aria-hidden="true" tabindex="-1"></a>  <span class="dt">y</span><span class="op">:</span> {</span>
+<span id="cb5-82"><a href="#cb5-82" aria-hidden="true" tabindex="-1"></a>    <span class="dt">grid</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></span>
+<span id="cb5-83"><a href="#cb5-83" aria-hidden="true" tabindex="-1"></a>    <span class="dt">label</span><span class="op">:</span> <span class="st">"Cumulative Cases"</span></span>
+<span id="cb5-84"><a href="#cb5-84" aria-hidden="true" tabindex="-1"></a>  }<span class="op">,</span></span>
+<span id="cb5-85"><a href="#cb5-85" aria-hidden="true" tabindex="-1"></a>  <span class="dt">marks</span><span class="op">:</span> [</span>
+<span id="cb5-86"><a href="#cb5-86" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">line</span>(filtered<span class="op">,</span> {</span>
+<span id="cb5-87"><a href="#cb5-87" aria-hidden="true" tabindex="-1"></a>    <span class="dt">x</span><span class="op">:</span> <span class="st">"DateDT"</span><span class="op">,</span> </span>
+<span id="cb5-88"><a href="#cb5-88" aria-hidden="true" tabindex="-1"></a>    <span class="dt">y</span><span class="op">:</span> <span class="st">"CasesCumulativeCNT"</span><span class="op">,</span> </span>
+<span id="cb5-89"><a href="#cb5-89" aria-hidden="true" tabindex="-1"></a>    <span class="dt">stroke</span><span class="op">:</span> <span class="st">"StateDSC"</span>})<span class="op">,</span></span>
+<span id="cb5-90"><a href="#cb5-90" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">text</span>(filtered<span class="op">,</span> Plot<span class="op">.</span><span class="fu">selectLast</span>({</span>
+<span id="cb5-91"><a href="#cb5-91" aria-hidden="true" tabindex="-1"></a>    <span class="dt">x</span><span class="op">:</span> <span class="st">"DateDT"</span><span class="op">,</span></span>
+<span id="cb5-92"><a href="#cb5-92" aria-hidden="true" tabindex="-1"></a>    <span class="dt">y</span><span class="op">:</span> <span class="st">"CasesCumulativeCNT"</span><span class="op">,</span></span>
+<span id="cb5-93"><a href="#cb5-93" aria-hidden="true" tabindex="-1"></a>    <span class="dt">z</span><span class="op">:</span> <span class="st">"StateDSC"</span><span class="op">,</span></span>
+<span id="cb5-94"><a href="#cb5-94" aria-hidden="true" tabindex="-1"></a>    <span class="dt">text</span><span class="op">:</span> <span class="st">"StateDSC"</span><span class="op">,</span></span>
+<span id="cb5-95"><a href="#cb5-95" aria-hidden="true" tabindex="-1"></a>    <span class="dt">textAnchor</span><span class="op">:</span> <span class="st">"CasesCumulativeCNT"</span><span class="op">,</span></span>
+<span id="cb5-96"><a href="#cb5-96" aria-hidden="true" tabindex="-1"></a>    })</span>
+<span id="cb5-97"><a href="#cb5-97" aria-hidden="true" tabindex="-1"></a>    )<span class="op">,</span></span>
+<span id="cb5-98"><a href="#cb5-98" aria-hidden="true" tabindex="-1"></a>  ]</span>
+<span id="cb5-99"><a href="#cb5-99" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div id="ojs-cell-5" data-nodetype="expression">
+
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code hidden" id="cb6" data-startfrom="104" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 103;"><span id="cb6-104"><a href="#cb6-104" aria-hidden="true" tabindex="-1"></a>filtered <span class="op">=</span> data<span class="op">.</span><span class="fu">filter</span>(<span class="kw">function</span>(data) {</span>
+<span id="cb6-105"><a href="#cb6-105" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> islands<span class="op">.</span><span class="fu">includes</span>(data<span class="op">.</span><span class="at">StateDSC</span>)<span class="op">;</span></span>
+<span id="cb6-106"><a href="#cb6-106" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div id="ojs-cell-6" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code hidden" id="cb7" data-startfrom="110" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 109;"><span id="cb7-110"><a href="#cb7-110" aria-hidden="true" tabindex="-1"></a>Inputs<span class="op">.</span><span class="fu">table</span>(filtered)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div id="ojs-cell-7" data-nodetype="expression">
 
 </div>
 </div>
@@ -280,7 +320,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </main> <!-- /main -->
 
 <script type="ojs-module-contents">
-{"contents":[{"methodName":"interpret","cellName":"ojs-cell-1","inline":false,"source":"data = {\n  const co2data = await FileAttachment('https://raw.githubusercontent.com/wf-id/us-mpx/main/output/mpx.csv')\n    .csv({ typed: true });\n  return co2data.map(d => { \n    d[\"Date\"] = Date(d[\"DateDT\"]);\n    return d; \n  });\n}\n"},{"methodName":"interpret","cellName":"ojs-cell-2","inline":false,"source":"viewof islands = Inputs.select(data.map(d => d.StateDSC), {\n  multiple: true, \n  label: \"StateDSC\", \n  initialValue: \"Alabama\",\n  sort: true, \n  unique: true})\n  \n //islands\n"},{"methodName":"interpret","cellName":"ojs-cell-3","inline":false,"source":"//#| eval: true\nPlot.plot({\n  y: {\n    grid: true,\n    label: \"Cumulative Cases\"\n  },\n  marks: [\n    Plot.line(filtered, {\n    x: \"DateDT\", \n    y: \"CasesCumulativeCNT\", \n    stroke: \"StateDSC\"}),\n    Plot.text(filtered, Plot.selectLast({\n    x: \"DateDT\",\n    y: \"CasesCumulativeCNT\",\n    z: \"StateDSC\",\n    text: \"StateDSC\",\n    textAnchor: \"CasesCumulativeCNT\",\n    })\n    ),\n  ]\n});\n"},{"methodName":"interpret","cellName":"ojs-cell-4","inline":false,"source":"filtered = data.filter(function(data) {\n  return islands.includes(data.StateDSC);\n});\n"},{"methodName":"interpret","cellName":"ojs-cell-5","inline":false,"source":"Inputs.table(filtered)\n"},{"methodName":"interpretQuiet","source":"shinyInput('islands')"}]}
+{"contents":[{"methodName":"interpret","cellName":"ojs-cell-1","inline":false,"source":"overall = {\n  const co2data = await FileAttachment('https://raw.githubusercontent.com/wf-id/us-mpx/main/output/us-incidence.csv')\n    .csv({ typed: true });\n  return co2data.map(d => { \n    d[\"Date\"] = Date(d[\"ReportDT\"]);\n    return d; \n  });\n}\n"},{"methodName":"interpret","cellName":"ojs-cell-2","inline":false,"source":"//#| eval: true\nPlot.plot({\n  y: {\n    grid: true,\n    label: \"Reported Cases\"\n  },\n  x: {\n    label: \"Epi Date\"\n  },\n  marks: [\n    Plot.line(overall, {\n    x: \"EpidateDT\", \n    y: \"CaseCNT\"}),\n  ]\n});\n"},{"methodName":"interpret","cellName":"ojs-cell-3","inline":false,"source":"data = {\n  const co2data = await FileAttachment('https://raw.githubusercontent.com/wf-id/us-mpx/main/output/mpx.csv')\n    .csv({ typed: true });\n  return co2data.map(d => { \n    d[\"Date\"] = Date(d[\"DateDT\"]);\n    return d; \n  });\n}\n"},{"methodName":"interpret","cellName":"ojs-cell-4","inline":false,"source":"viewof islands = Inputs.select(data.map(d => d.StateDSC), {\n  multiple: true, \n  label: \"StateDSC\", \n  initialValue: \"Alabama\",\n  sort: true, \n  unique: true})\n  \n //islands\n"},{"methodName":"interpret","cellName":"ojs-cell-5","inline":false,"source":"//#| eval: true\nPlot.plot({\n  y: {\n    grid: true,\n    label: \"Cumulative Cases\"\n  },\n  marks: [\n    Plot.line(filtered, {\n    x: \"DateDT\", \n    y: \"CasesCumulativeCNT\", \n    stroke: \"StateDSC\"}),\n    Plot.text(filtered, Plot.selectLast({\n    x: \"DateDT\",\n    y: \"CasesCumulativeCNT\",\n    z: \"StateDSC\",\n    text: \"StateDSC\",\n    textAnchor: \"CasesCumulativeCNT\",\n    })\n    ),\n  ]\n});\n"},{"methodName":"interpret","cellName":"ojs-cell-6","inline":false,"source":"filtered = data.filter(function(data) {\n  return islands.includes(data.StateDSC);\n});\n"},{"methodName":"interpret","cellName":"ojs-cell-7","inline":false,"source":"Inputs.table(filtered)\n"},{"methodName":"interpretQuiet","source":"shinyInput('islands')"}]}
 </script>
 <script type="module">
 window._ojs.paths.runtimeToDoc = "../..";

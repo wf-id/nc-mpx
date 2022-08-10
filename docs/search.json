@@ -14,6 +14,13 @@
     "text": "These data provide a longitudinal view of MPX cases by state in the United states. These data are pulled from the Centers for Disease Control and Prevention Monkeypox dashboard and stored in this repository."
   },
   {
+    "objectID": "us.html#overall-incidence",
+    "href": "us.html#overall-incidence",
+    "title": "MPX in the US",
+    "section": "Overall Incidence",
+    "text": "Overall Incidence\n\noverall = {\n  const co2data = await FileAttachment('https://raw.githubusercontent.com/wf-id/us-mpx/main/output/us-incidence.csv')\n    .csv({ typed: true });\n  return co2data.map(d => { \n    d[\"Date\"] = Date(d[\"ReportDT\"]);\n    return d; \n  });\n}\n\n\n\n\n\n\n\n//#| eval: true\nPlot.plot({\n  y: {\n    grid: true,\n    label: \"Reported Cases\"\n  },\n  x: {\n    label: \"Epi Date\"\n  },\n  marks: [\n    Plot.line(overall, {\n    x: \"EpidateDT\", \n    y: \"CaseCNT\"}),\n  ]\n});"
+  },
+  {
     "objectID": "us.html#graphics",
     "href": "us.html#graphics",
     "title": "MPX in the US",
@@ -32,7 +39,7 @@
     "href": "index.html",
     "title": "MPX Tracker for North Carolina",
     "section": "",
-    "text": "Cases updated daily by NCDHHS Monday through Friday.\nThese data are current as of 02 August, 2022. Current case incidence suggests a doubling time of 7.1 (95% CI, 6.7-7.6) days."
+    "text": "Cases updated daily by NCDHHS Monday through Friday.\nThese data are current as of 09 August, 2022. Current case incidence suggests a doubling time of 7.7 (95% CI, 7.3-8.2) days."
   },
   {
     "objectID": "index.html#data-source",
