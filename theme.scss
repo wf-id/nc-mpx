@@ -1,8 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400..700');
 /*-- scss:defaults --*/
 // Base document colors
 //$primary: #00818a;
-$primary: #a67f31;
+//$primary: #a67f31; //old gold
+$primary: #8C6D2C; //web old gold
 $atriumlightray: #f5f5f5;
 $oldgold: #a67f31;
-
+$font-family-sans-serif: "Nunito Sans", sans-serif !default; 
 /*-- scss:rules --*/
