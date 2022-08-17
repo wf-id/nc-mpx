@@ -21,7 +21,7 @@ overall = {
 
 ```{ojs}
 onlyNC = overall.filter((state) => {
-  return onlyNC.Jurisdiction = "North Carolina"
+  return state.Jurisdiction = "North Carolina"
 })
 ```
 
