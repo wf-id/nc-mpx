@@ -53,6 +53,6 @@
     "href": "vaccines.html",
     "title": "Vaccines",
     "section": "",
-    "text": "overall = {\n  const co2data = await FileAttachment('https://raw.githubusercontent.com/wf-id/us-mpx/main/output/jynneos.csv')\n    .csv({ typed: true });\n  return co2data.map(d => { \n    d[\"Date\"] = Date(d[\"ReportDT\"]);\n    return d; \n  });\n}\n\n\n\n\n\n\n\nonlyNC = overall.filter((state) => {\n  return onlyNC.Jurisdiction = \"North Carolina\"\n})\n\n\n\n\n\n\n\n//#| eval: true\nPlot.plot({\n  y: {\n    grid: true,\n    label: \"Reported Cases\"\n  },\n  x: {\n    label: \"Epi Date\"\n  },\n  marks: [\n    Plot.bar(onlyNC, {\n    x: \"DateDT\", \n    y: \"AllocatedCNT\"}),\n  ]\n});\n\n\n\n\n\n\n\nInputs.table(onlyNC);\n\n\n\n\n\n\n\nInputs.table(overall);"
+    "text": "overall = {\n  const co2data = await FileAttachment('https://raw.githubusercontent.com/wf-id/us-mpx/main/output/jynneos.csv')\n    .csv({ typed: true });\n  return co2data.map(d => { \n    d[\"Date\"] = Date(d[\"ReportDT\"]);\n    return d; \n  });\n}\n\n\n\n\n\n\n\nonlyNC = overall.filter((state) => {\n  return state.Jurisdiction = \"North Carolina\"\n})\n\n\n\n\n\n\n\n//#| eval: true\nPlot.plot({\n  y: {\n    grid: true,\n    label: \"Reported Cases\"\n  },\n  x: {\n    label: \"Epi Date\"\n  },\n  marks: [\n    Plot.bar(onlyNC, {\n    x: \"DateDT\", \n    y: \"AllocatedCNT\"}),\n  ]\n});\n\n\n\n\n\n\n\nInputs.table(onlyNC);\n\n\n\n\n\n\n\nInputs.table(overall);"
   }
 ]
