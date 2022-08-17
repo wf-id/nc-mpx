@@ -21,7 +21,7 @@ overall = {
 
 ```{ojs}
 onlyNC = overall.filter((state) => {
-  return state.Jurisdiction = "North Carolina"
+  return state.Jurisdiction == "North Carolina"
 })
 ```
 
@@ -31,15 +31,19 @@ onlyNC = overall.filter((state) => {
 Plot.plot({
   y: {
     grid: true,
-    label: "Reported Cases"
+    label: "Jynneos Vaccine Doses"
   },
   x: {
-    label: "Epi Date"
+    label: "Date"
   },
   marks: [
-    Plot.bar(onlyNC, {
+    Plot.barY(onlyNC, {
     x: "DateDT", 
     y: "AllocatedCNT"}),
+    Plot.barY(onlyNC, {
+    x: "DateDT", 
+    y: "RequestedCNT"}),
+    Plot.ruleY([0])
   ]
 });
 ```
