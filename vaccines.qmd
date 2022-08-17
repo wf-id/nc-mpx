@@ -37,13 +37,16 @@ Plot.plot({
     label: "Date"
   },
   marks: [
-    Plot.barY(onlyNC, {
-    x: "DateDT", 
-    y: "AllocatedCNT"}),
-    Plot.barY(onlyNC, {
-    x: "DateDT", 
-    y: "RequestedCNT"}),
-    Plot.ruleY([0])
+    Plot.ruleY([0]),
+    Plot.barY(onlyNC, {x: "DateDT", y: "AllocatedCNT", fill: ["blue"], title: (d) =>
+        `${d.DateDT} \n Allocated Doses: ${d.AllocatedCNT} \n Requested Doses: ${d.RequestedCNT}` // \n makes a new line
+    }),
+    //Plot.text(onlyNC, {x: "DateDT", y: "AllocatedCNT", text: [`Requested1`], frameAnchor: "top"}),
+    //Plot.text(onlyNC, {x: "DateDT", y: "RequestedCNT", text: [`Requested2`], frameAnchor: "top"}),
+    Plot.barY(onlyNC, {x: "DateDT", y: "RequestedCNT",fill: "orange", title: (d) =>
+        `${d.DateDT} \n Allocated Doses: ${d.AllocatedCNT} \n Requested Doses: ${d.RequestedCNT}` // \n makes a new line
+    }),
+    
   ]
 });
 ```
@@ -53,6 +56,7 @@ Inputs.table(onlyNC);
 ```
 
 ```{ojs}
-Inputs.table(overall);
+import {Plot} from "@mkfreeman/plot-tooltip"
 ```
+
 
