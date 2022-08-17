@@ -1,0 +1,54 @@
+---
+title: "Vaccines"
+execute:
+  eval: true
+  echo: false
+  message: false
+---
+
+Please see [NCDHH's latest webpage for more information about where vaccines area available](https://www.ncdhhs.gov/divisions/public-health/monkeypox/monkeypox-vaccine-locations).
+
+```{ojs}
+overall = {
+  const co2data = await FileAttachment('https://raw.githubusercontent.com/wf-id/us-mpx/main/output/jynneos.csv')
+    .csv({ typed: true });
+  return co2data.map(d => { 
+    d["Date"] = Date(d["ReportDT"]);
+    return d; 
+  });
+}
+```
+
+```{ojs}
+onlyNC = overall.filter((state) => {
+  return onlyNC.Jurisdiction = "North Carolina"
+})
+```
+
+
+```{ojs}
+//#| eval: true
+Plot.plot({
+  y: {
+    grid: true,
+    label: "Reported Cases"
+  },
+  x: {
+    label: "Epi Date"
+  },
+  marks: [
+    Plot.bar(onlyNC, {
+    x: "DateDT", 
+    y: "AllocatedCNT"}),
+  ]
+});
+```
+
+```{ojs}
+Inputs.table(onlyNC);
+```
+
+```{ojs}
+Inputs.table(overall);
+```
+
