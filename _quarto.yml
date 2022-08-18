@@ -25,6 +25,7 @@ site:
       - href: index.qmd
         text: Home
       - href: us.qmd
+      - href: vaccines.qmd
       - href: "https://wakeforestid.com"
         text: Main
         
