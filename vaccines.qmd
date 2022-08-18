@@ -8,7 +8,7 @@ execute:
 
 Please see [NCDHH's latest webpage for more information about where vaccines area available](https://www.ncdhhs.gov/divisions/public-health/monkeypox/monkeypox-vaccine-locations).
 
-<iframe src="https://www.ncdhhs.gov/divisions/public-health/monkeypox/monkeypox-vaccine-locations" title="Monkeypox Vaccine Locations and Contacts"></iframe>
+<iframe src="https://www.ncdhhs.gov/divisions/public-health/monkeypox/monkeypox-vaccine-locations" width="100%" height="300" style="border:none;"></iframe>
 
 ## Jynneos Vaccine Distribution
 
@@ -19,7 +19,7 @@ Please note that administration will affect how many doses can be given per the 
 overall = {
   const co2data = await FileAttachment('https://raw.githubusercontent.com/wf-id/us-mpx/main/output/jynneos.csv')
     .csv({ typed: true });
-  return co2data.map;
+  return co2data;
 }
 ```
 
