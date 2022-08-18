@@ -19,7 +19,7 @@ mpx_generation$mean = 8.58
 mpx_generation$mean_sd = 1.06
 mpx_generation$sd = 4.16
 mpx_generation$sd_sd = 1.01
-
+mpx_generation$max <- 21
 
 mpx_test_delay <- list()
 
@@ -27,6 +27,7 @@ mpx_test_delay$mean = 8.17
 mpx_test_delay$mean_sd = 1.57
 mpx_test_delay$sd = 2.11
 mpx_test_delay$sd_sd = 0.534
+mpx_test_delay$max <- 15
 
 
 case_data <- dat_mpx %>% 
@@ -39,7 +40,7 @@ case_data <- dat_mpx %>%
 
 glm(cases ~ as.numeric(clean_date), data = dat_mpx, family = quasipoisson())
 
-EpiNow2::growth_to_R( 0.1164 , 8.17, 2.11)
+EpiNow2::growth_to_R( 0.07 , 8.17, 2.11)
 
 estimates <- epinow(reported_cases = case_data,
                     generation_time = mpx_generation,
