@@ -8,7 +8,7 @@ execute:
 
 Please see [NCDHH's latest webpage for more information about where vaccines area available](https://www.ncdhhs.gov/divisions/public-health/monkeypox/monkeypox-vaccine-locations).
 
-<iframe src="https://www.ncdhhs.gov/divisions/public-health/monkeypox/monkeypox-vaccine-locations" width="100%" height="300" style="border:none;"></iframe>
+<iframe src="//www.ncdhhs.gov/divisions/public-health/monkeypox/monkeypox-vaccine-locations" width="100%" height="300" style="border:none;"></iframe>
 
 ## Jynneos Vaccine Distribution
 
