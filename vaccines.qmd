@@ -1,5 +1,5 @@
 ---
-title: "Vaccines"
+title: "Vaccine Distribution"
 execute:
   eval: true
   echo: false
@@ -8,14 +8,18 @@ execute:
 
 Please see [NCDHH's latest webpage for more information about where vaccines area available](https://www.ncdhhs.gov/divisions/public-health/monkeypox/monkeypox-vaccine-locations).
 
+<iframe src="https://www.ncdhhs.gov/divisions/public-health/monkeypox/monkeypox-vaccine-locations" title="Monkeypox Vaccine Locations and Contacts"></iframe>
+
+## Jynneos Vaccine Distribution
+
+Below reflects the total about of Jynneos vaccine doses that has been allocated, requested, and shipped based on information from the [Administration for Strategic Preparedness and Response](https://aspr.hhs.gov/SNS/Pages/JYNNEOS-Distribution.aspx).
+Please note that administration will affect how many doses can be given per the same volume.
+
 ```{ojs}
 overall = {
   const co2data = await FileAttachment('https://raw.githubusercontent.com/wf-id/us-mpx/main/output/jynneos.csv')
     .csv({ typed: true });
-  return co2data.map(d => { 
-    d["Date"] = Date(d["ReportDT"]);
-    return d; 
-  });
+  return co2data.map;
 }
 ```
 
