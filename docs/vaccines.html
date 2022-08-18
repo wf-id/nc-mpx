@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>MPX in North Carolina - Vaccines</title>
+<title>MPX in North Carolina - Vaccine Distribution</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -122,10 +122,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 
 <link rel="stylesheet" href="styles.css">
-<meta property="og:title" content="MPX in North Carolina - Vaccines">
+<meta property="og:title" content="MPX in North Carolina - Vaccine Distribution">
 <meta property="og:description" content="Please see NCDHH’s latest webpage for more information about where vaccines area available.">
 <meta property="og:site-name" content="MPX in North Carolina">
-<meta name="twitter:title" content="MPX in North Carolina - Vaccines">
+<meta name="twitter:title" content="MPX in North Carolina - Vaccine Distribution">
 <meta name="twitter:description" content="Please see NCDHH’s latest webpage for more information about where vaccines area available.">
 <meta name="twitter:card" content="summary">
 </head>
@@ -149,6 +149,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./us.html">MPX in the US</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="./vaccines.html" aria-current="page">Vaccine Distribution</a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="https://wakeforestid.com">Main</a>
@@ -176,7 +179,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Vaccines</h1>
+<h1 class="title">Vaccine Distribution</h1>
 </div>
 
 
@@ -191,15 +194,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </header>
 
 <p>Please see <a href="https://www.ncdhhs.gov/divisions/public-health/monkeypox/monkeypox-vaccine-locations">NCDHH’s latest webpage for more information about where vaccines area available</a>.</p>
+<iframe src="https://www.ncdhhs.gov/divisions/public-health/monkeypox/monkeypox-vaccine-locations" title="Monkeypox Vaccine Locations and Contacts">
+</iframe>
+<section id="jynneos-vaccine-distribution" class="level2">
+<h2 class="anchored" data-anchor-id="jynneos-vaccine-distribution">Jynneos Vaccine Distribution</h2>
+<p>Below reflects the total about of Jynneos vaccine doses that has been allocated, requested, and shipped based on information from the <a href="https://aspr.hhs.gov/SNS/Pages/JYNNEOS-Distribution.aspx">Administration for Strategic Preparedness and Response</a>. Please note that administration will affect how many doses can be given per the same volume.</p>
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb1" data-startfrom="11" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 10;"><span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>overall <span class="op">=</span> {</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> co2data <span class="op">=</span> <span class="cf">await</span> <span class="fu">FileAttachment</span>(<span class="st">'https://raw.githubusercontent.com/wf-id/us-mpx/main/output/jynneos.csv'</span>)</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">csv</span>({ <span class="dt">typed</span><span class="op">:</span> <span class="kw">true</span> })<span class="op">;</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> co2data<span class="op">.</span><span class="fu">map</span>(d <span class="kw">=&gt;</span> { </span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    d[<span class="st">"Date"</span>] <span class="op">=</span> <span class="bu">Date</span>(d[<span class="st">"ReportDT"</span>])<span class="op">;</span></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> d<span class="op">;</span> </span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  })<span class="op">;</span></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb1" data-startfrom="18" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 17;"><span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>overall <span class="op">=</span> {</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> co2data <span class="op">=</span> <span class="cf">await</span> <span class="fu">FileAttachment</span>(<span class="st">'https://raw.githubusercontent.com/wf-id/us-mpx/main/output/jynneos.csv'</span>)</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">csv</span>({ <span class="dt">typed</span><span class="op">:</span> <span class="kw">true</span> })<span class="op">;</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> co2data<span class="op">.</span><span class="at">map</span><span class="op">;</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div id="ojs-cell-1" data-nodetype="declaration">
 
@@ -207,9 +212,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb2" data-startfrom="22" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 21;"><span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>onlyNC <span class="op">=</span> overall<span class="op">.</span><span class="fu">filter</span>((state) <span class="kw">=&gt;</span> {</span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> state<span class="op">.</span><span class="at">Jurisdiction</span> <span class="op">==</span> <span class="st">"North Carolina"</span></span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb2" data-startfrom="26" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 25;"><span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>onlyNC <span class="op">=</span> overall<span class="op">.</span><span class="fu">filter</span>((state) <span class="kw">=&gt;</span> {</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> state<span class="op">.</span><span class="at">Jurisdiction</span> <span class="op">==</span> <span class="st">"North Carolina"</span></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div id="ojs-cell-2" data-nodetype="declaration">
 
@@ -217,28 +222,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb3" data-startfrom="29" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 28;"><span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a><span class="co">//#| eval: true</span></span>
-<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>Plot<span class="op">.</span><span class="fu">plot</span>({</span>
-<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>  <span class="dt">y</span><span class="op">:</span> {</span>
-<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>    <span class="dt">grid</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></span>
-<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>    <span class="dt">label</span><span class="op">:</span> <span class="st">"Jynneos Vaccine Doses"</span></span>
-<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a>  }<span class="op">,</span></span>
-<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>  <span class="dt">x</span><span class="op">:</span> {</span>
-<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>    <span class="dt">label</span><span class="op">:</span> <span class="st">"Date"</span></span>
-<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a>  }<span class="op">,</span></span>
-<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a>  <span class="dt">marks</span><span class="op">:</span> [</span>
-<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">ruleY</span>([<span class="dv">0</span>])<span class="op">,</span></span>
-<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">barY</span>(onlyNC<span class="op">,</span> {<span class="dt">x</span><span class="op">:</span> <span class="st">"DateDT"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"AllocatedCNT"</span><span class="op">,</span> <span class="dt">fill</span><span class="op">:</span> [<span class="st">"blue"</span>]<span class="op">,</span> <span class="dt">title</span><span class="op">:</span> (d) <span class="kw">=&gt;</span></span>
-<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a>        <span class="vs">`</span><span class="sc">${</span>d<span class="op">.</span><span class="at">DateDT</span><span class="sc">}</span><span class="vs"> </span><span class="sc">\n</span><span class="vs"> Allocated Doses: </span><span class="sc">${</span>d<span class="op">.</span><span class="at">AllocatedCNT</span><span class="sc">}</span><span class="vs"> </span><span class="sc">\n</span><span class="vs"> Requested Doses: </span><span class="sc">${</span>d<span class="op">.</span><span class="at">RequestedCNT</span><span class="sc">}</span><span class="vs">`</span> <span class="co">// \n makes a new line</span></span>
-<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a>    })<span class="op">,</span></span>
-<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a>    <span class="co">//Plot.text(onlyNC, {x: "DateDT", y: "AllocatedCNT", text: [`Requested1`], frameAnchor: "top"}),</span></span>
-<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a>    <span class="co">//Plot.text(onlyNC, {x: "DateDT", y: "RequestedCNT", text: [`Requested2`], frameAnchor: "top"}),</span></span>
-<span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">barY</span>(onlyNC<span class="op">,</span> {<span class="dt">x</span><span class="op">:</span> <span class="st">"DateDT"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"RequestedCNT"</span><span class="op">,</span><span class="dt">fill</span><span class="op">:</span> <span class="st">"orange"</span><span class="op">,</span> <span class="dt">title</span><span class="op">:</span> (d) <span class="kw">=&gt;</span></span>
-<span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a>        <span class="vs">`</span><span class="sc">${</span>d<span class="op">.</span><span class="at">DateDT</span><span class="sc">}</span><span class="vs"> </span><span class="sc">\n</span><span class="vs"> Allocated Doses: </span><span class="sc">${</span>d<span class="op">.</span><span class="at">AllocatedCNT</span><span class="sc">}</span><span class="vs"> </span><span class="sc">\n</span><span class="vs"> Requested Doses: </span><span class="sc">${</span>d<span class="op">.</span><span class="at">RequestedCNT</span><span class="sc">}</span><span class="vs">`</span> <span class="co">// \n makes a new line</span></span>
-<span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a>    })<span class="op">,</span></span>
-<span id="cb3-48"><a href="#cb3-48" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb3-49"><a href="#cb3-49" aria-hidden="true" tabindex="-1"></a>  ]</span>
-<span id="cb3-50"><a href="#cb3-50" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb3" data-startfrom="33" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 32;"><span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a><span class="co">//#| eval: true</span></span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a>Plot<span class="op">.</span><span class="fu">plot</span>({</span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>  <span class="dt">y</span><span class="op">:</span> {</span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>    <span class="dt">grid</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a>    <span class="dt">label</span><span class="op">:</span> <span class="st">"Jynneos Vaccine Doses"</span></span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a>  }<span class="op">,</span></span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a>  <span class="dt">x</span><span class="op">:</span> {</span>
+<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a>    <span class="dt">label</span><span class="op">:</span> <span class="st">"Date"</span></span>
+<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a>  }<span class="op">,</span></span>
+<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a>  <span class="dt">marks</span><span class="op">:</span> [</span>
+<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">ruleY</span>([<span class="dv">0</span>])<span class="op">,</span></span>
+<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">barY</span>(onlyNC<span class="op">,</span> {<span class="dt">x</span><span class="op">:</span> <span class="st">"DateDT"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"AllocatedCNT"</span><span class="op">,</span> <span class="dt">fill</span><span class="op">:</span> [<span class="st">"blue"</span>]<span class="op">,</span> <span class="dt">title</span><span class="op">:</span> (d) <span class="kw">=&gt;</span></span>
+<span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a>        <span class="vs">`</span><span class="sc">${</span>d<span class="op">.</span><span class="at">DateDT</span><span class="sc">}</span><span class="vs"> </span><span class="sc">\n</span><span class="vs"> Allocated Doses: </span><span class="sc">${</span>d<span class="op">.</span><span class="at">AllocatedCNT</span><span class="sc">}</span><span class="vs"> </span><span class="sc">\n</span><span class="vs"> Requested Doses: </span><span class="sc">${</span>d<span class="op">.</span><span class="at">RequestedCNT</span><span class="sc">}</span><span class="vs">`</span> <span class="co">// \n makes a new line</span></span>
+<span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a>    })<span class="op">,</span></span>
+<span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a>    <span class="co">//Plot.text(onlyNC, {x: "DateDT", y: "AllocatedCNT", text: [`Requested1`], frameAnchor: "top"}),</span></span>
+<span id="cb3-48"><a href="#cb3-48" aria-hidden="true" tabindex="-1"></a>    <span class="co">//Plot.text(onlyNC, {x: "DateDT", y: "RequestedCNT", text: [`Requested2`], frameAnchor: "top"}),</span></span>
+<span id="cb3-49"><a href="#cb3-49" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">barY</span>(onlyNC<span class="op">,</span> {<span class="dt">x</span><span class="op">:</span> <span class="st">"DateDT"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"RequestedCNT"</span><span class="op">,</span><span class="dt">fill</span><span class="op">:</span> <span class="st">"orange"</span><span class="op">,</span> <span class="dt">title</span><span class="op">:</span> (d) <span class="kw">=&gt;</span></span>
+<span id="cb3-50"><a href="#cb3-50" aria-hidden="true" tabindex="-1"></a>        <span class="vs">`</span><span class="sc">${</span>d<span class="op">.</span><span class="at">DateDT</span><span class="sc">}</span><span class="vs"> </span><span class="sc">\n</span><span class="vs"> Allocated Doses: </span><span class="sc">${</span>d<span class="op">.</span><span class="at">AllocatedCNT</span><span class="sc">}</span><span class="vs"> </span><span class="sc">\n</span><span class="vs"> Requested Doses: </span><span class="sc">${</span>d<span class="op">.</span><span class="at">RequestedCNT</span><span class="sc">}</span><span class="vs">`</span> <span class="co">// \n makes a new line</span></span>
+<span id="cb3-51"><a href="#cb3-51" aria-hidden="true" tabindex="-1"></a>    })<span class="op">,</span></span>
+<span id="cb3-52"><a href="#cb3-52" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb3-53"><a href="#cb3-53" aria-hidden="true" tabindex="-1"></a>  ]</span>
+<span id="cb3-54"><a href="#cb3-54" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div id="ojs-cell-3" data-nodetype="expression">
 
@@ -246,7 +251,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb4" data-startfrom="54" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 53;"><span id="cb4-54"><a href="#cb4-54" aria-hidden="true" tabindex="-1"></a>Inputs<span class="op">.</span><span class="fu">table</span>(onlyNC)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb4" data-startfrom="58" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 57;"><span id="cb4-58"><a href="#cb4-58" aria-hidden="true" tabindex="-1"></a>Inputs<span class="op">.</span><span class="fu">table</span>(onlyNC)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div id="ojs-cell-4" data-nodetype="expression">
 
@@ -254,7 +259,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb5" data-startfrom="58" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 57;"><span id="cb5-58"><a href="#cb5-58" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> {Plot} <span class="im">from</span> <span class="st">"@mkfreeman/plot-tooltip"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb5" data-startfrom="62" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 61;"><span id="cb5-62"><a href="#cb5-62" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> {Plot} <span class="im">from</span> <span class="st">"@mkfreeman/plot-tooltip"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div id="ojs-cell-5" data-nodetype="declaration">
 
@@ -263,11 +268,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 
 
+</section>
 
 </main> <!-- /main -->
 
 <script type="ojs-module-contents">
-{"contents":[{"methodName":"interpret","cellName":"ojs-cell-1","inline":false,"source":"overall = {\n  const co2data = await FileAttachment('https://raw.githubusercontent.com/wf-id/us-mpx/main/output/jynneos.csv')\n    .csv({ typed: true });\n  return co2data.map(d => { \n    d[\"Date\"] = Date(d[\"ReportDT\"]);\n    return d; \n  });\n}\n"},{"methodName":"interpret","cellName":"ojs-cell-2","inline":false,"source":"onlyNC = overall.filter((state) => {\n  return state.Jurisdiction == \"North Carolina\"\n})\n"},{"methodName":"interpret","cellName":"ojs-cell-3","inline":false,"source":"//#| eval: true\nPlot.plot({\n  y: {\n    grid: true,\n    label: \"Jynneos Vaccine Doses\"\n  },\n  x: {\n    label: \"Date\"\n  },\n  marks: [\n    Plot.ruleY([0]),\n    Plot.barY(onlyNC, {x: \"DateDT\", y: \"AllocatedCNT\", fill: [\"blue\"], title: (d) =>\n        `${d.DateDT} \\n Allocated Doses: ${d.AllocatedCNT} \\n Requested Doses: ${d.RequestedCNT}` // \\n makes a new line\n    }),\n    //Plot.text(onlyNC, {x: \"DateDT\", y: \"AllocatedCNT\", text: [`Requested1`], frameAnchor: \"top\"}),\n    //Plot.text(onlyNC, {x: \"DateDT\", y: \"RequestedCNT\", text: [`Requested2`], frameAnchor: \"top\"}),\n    Plot.barY(onlyNC, {x: \"DateDT\", y: \"RequestedCNT\",fill: \"orange\", title: (d) =>\n        `${d.DateDT} \\n Allocated Doses: ${d.AllocatedCNT} \\n Requested Doses: ${d.RequestedCNT}` // \\n makes a new line\n    }),\n    \n  ]\n});\n"},{"methodName":"interpret","cellName":"ojs-cell-4","inline":false,"source":"Inputs.table(onlyNC);\n"},{"methodName":"interpret","cellName":"ojs-cell-5","inline":false,"source":"import {Plot} from \"@mkfreeman/plot-tooltip\"\n"}]}
+{"contents":[{"methodName":"interpret","cellName":"ojs-cell-1","inline":false,"source":"overall = {\n  const co2data = await FileAttachment('https://raw.githubusercontent.com/wf-id/us-mpx/main/output/jynneos.csv')\n    .csv({ typed: true });\n  return co2data.map;\n}\n"},{"methodName":"interpret","cellName":"ojs-cell-2","inline":false,"source":"onlyNC = overall.filter((state) => {\n  return state.Jurisdiction == \"North Carolina\"\n})\n"},{"methodName":"interpret","cellName":"ojs-cell-3","inline":false,"source":"//#| eval: true\nPlot.plot({\n  y: {\n    grid: true,\n    label: \"Jynneos Vaccine Doses\"\n  },\n  x: {\n    label: \"Date\"\n  },\n  marks: [\n    Plot.ruleY([0]),\n    Plot.barY(onlyNC, {x: \"DateDT\", y: \"AllocatedCNT\", fill: [\"blue\"], title: (d) =>\n        `${d.DateDT} \\n Allocated Doses: ${d.AllocatedCNT} \\n Requested Doses: ${d.RequestedCNT}` // \\n makes a new line\n    }),\n    //Plot.text(onlyNC, {x: \"DateDT\", y: \"AllocatedCNT\", text: [`Requested1`], frameAnchor: \"top\"}),\n    //Plot.text(onlyNC, {x: \"DateDT\", y: \"RequestedCNT\", text: [`Requested2`], frameAnchor: \"top\"}),\n    Plot.barY(onlyNC, {x: \"DateDT\", y: \"RequestedCNT\",fill: \"orange\", title: (d) =>\n        `${d.DateDT} \\n Allocated Doses: ${d.AllocatedCNT} \\n Requested Doses: ${d.RequestedCNT}` // \\n makes a new line\n    }),\n    \n  ]\n});\n"},{"methodName":"interpret","cellName":"ojs-cell-4","inline":false,"source":"Inputs.table(onlyNC);\n"},{"methodName":"interpret","cellName":"ojs-cell-5","inline":false,"source":"import {Plot} from \"@mkfreeman/plot-tooltip\"\n"}]}
 </script>
 <script type="module">
 window._ojs.paths.runtimeToDoc = "../..";
