@@ -8,8 +8,6 @@ execute:
 
 Please see [NCDHH's latest webpage for more information about where vaccines area available](https://www.ncdhhs.gov/divisions/public-health/monkeypox/monkeypox-vaccine-locations).
 
-<iframe src="//www.ncdhhs.gov/divisions/public-health/monkeypox/monkeypox-vaccine-locations" width="100%" height="300" style="border:none;"></iframe>
-
 ## Jynneos Vaccine Distribution
 
 Below reflects the total about of Jynneos vaccine doses that has been allocated, requested, and shipped based on information from the [Administration for Strategic Preparedness and Response](https://aspr.hhs.gov/SNS/Pages/JYNNEOS-Distribution.aspx).
