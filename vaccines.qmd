@@ -40,12 +40,12 @@ Plot.plot({
   },
   marks: [
     Plot.ruleY([0]),
-    Plot.barY(onlyNC, {x: "DateDT", y: "AllocatedCNT", fill: ["blue"], title: (d) =>
+    Plot.barY(onlyNC, {x: "DateDT", y: "AllocatedCNT", fill: ["#0088CE"], title: (d) =>
         `${d.DateDT} \n Allocated Doses: ${d.AllocatedCNT} \n Requested Doses: ${d.RequestedCNT}` // \n makes a new line
     }),
     //Plot.text(onlyNC, {x: "DateDT", y: "AllocatedCNT", text: [`Requested1`], frameAnchor: "top"}),
     //Plot.text(onlyNC, {x: "DateDT", y: "RequestedCNT", text: [`Requested2`], frameAnchor: "top"}),
-    Plot.barY(onlyNC, {x: "DateDT", y: "RequestedCNT",fill: "orange", title: (d) =>
+    Plot.barY(onlyNC, {x: "DateDT", y: "RequestedCNT",fill: "#58A618", title: (d) =>
         `${d.DateDT} \n Allocated Doses: ${d.AllocatedCNT} \n Requested Doses: ${d.RequestedCNT}` // \n makes a new line
     }),
     
@@ -54,7 +54,25 @@ Plot.plot({
 ```
 
 ```{ojs}
-Inputs.table(onlyNC);
+Inputs.table(onlyNC,, {
+  columns: [
+    "Jurisdiction",
+    "DateDT",
+    "AllocatedCNT",
+    "RequestedCNT",
+    "ShippedCNT",
+    "FilledPCT"
+  ],
+
+  header: {
+    Jurisdiction: "State",
+    DateDT: "Update Date",
+    AllocatedCNT: "Allocated Doses",
+    RequestedCNT: "Requested Doses",
+    ShippedCNT : "Shipped Doses",
+    FilledPCT : "Percent of Requested Shipped"
+  }
+});
 ```
 
 ```{ojs}
