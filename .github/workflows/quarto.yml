@@ -2,7 +2,7 @@ name: Update Website with Quarto
 
 on:
   push:
-    branches: [main, master]
+    branches: [main, master, vaccines]
 
 jobs:
   build:

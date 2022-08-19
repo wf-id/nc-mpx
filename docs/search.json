@@ -47,5 +47,19 @@
     "title": "MPX Tracker for North Carolina",
     "section": "Data Source",
     "text": "Data Source\nThese data are pulled each weekday from the North Carolina Department of Health’s Monkeypox webpage."
+  },
+  {
+    "objectID": "vaccines.html",
+    "href": "vaccines.html",
+    "title": "Vaccine Distribution",
+    "section": "",
+    "text": "Please see NCDHH’s latest webpage for more information about where vaccines area available."
+  },
+  {
+    "objectID": "vaccines.html#jynneos-vaccine-distribution",
+    "href": "vaccines.html#jynneos-vaccine-distribution",
+    "title": "Vaccine Distribution",
+    "section": "Jynneos Vaccine Distribution",
+    "text": "Jynneos Vaccine Distribution\nBelow reflects the total about of Jynneos vaccine doses that has been allocated, requested, and shipped based on information from the Administration for Strategic Preparedness and Response. Please note that administration will affect how many doses can be given per the same volume.\n\noverall = {\n  const co2data = await FileAttachment('https://raw.githubusercontent.com/wf-id/us-mpx/main/output/jynneos.csv')\n    .csv({ typed: true });\n  return co2data;\n}\n\n\n\n\n\n\n\nonlyNC = overall.filter((state) => {\n  return state.Jurisdiction == \"North Carolina\"\n})\n\n\n\n\n\n\n\n//#| eval: true\nPlot.plot({\n  y: {\n    grid: true,\n    label: \"Jynneos Vaccine Doses\"\n  },\n  x: {\n    label: \"Date\"\n  },\n  marks: [\n    Plot.ruleY([0]),\n    Plot.barY(onlyNC, {x: \"DateDT\", y: \"AllocatedCNT\", fill: [\"#0088CE\"], title: (d) =>\n        `${d.DateDT} \\n Allocated Doses: ${d.AllocatedCNT} \\n Requested Doses: ${d.RequestedCNT}` // \\n makes a new line\n    }),\n    //Plot.text(onlyNC, {x: \"DateDT\", y: \"AllocatedCNT\", text: [`Requested1`], frameAnchor: \"top\"}),\n    //Plot.text(onlyNC, {x: \"DateDT\", y: \"RequestedCNT\", text: [`Requested2`], frameAnchor: \"top\"}),\n    Plot.barY(onlyNC, {x: \"DateDT\", y: \"RequestedCNT\",fill: \"#58A618\", title: (d) =>\n        `${d.DateDT} \\n Allocated Doses: ${d.AllocatedCNT} \\n Requested Doses: ${d.RequestedCNT}` // \\n makes a new line\n    }),\n    \n  ]\n});\n\n\n\n\n\n\n\nInputs.table(onlyNC, {\n  columns: [\n    \"Jurisdiction\",\n    \"DateDT\",\n    \"AllocatedCNT\",\n    \"RequestedCNT\",\n    \"ShippedCNT\",\n    \"FilledPCT\"\n  ],\n\n  header: {\n    Jurisdiction: \"State\",\n    DateDT: \"Update Date\",\n    AllocatedCNT: \"Allocated Doses\",\n    RequestedCNT: \"Requested Doses\",\n    ShippedCNT : \"Shipped Doses\",\n    FilledPCT : \"Percent of Requested Shipped\"\n  }\n});\n\n\n\n\n\n\n\nimport {Plot} from \"@mkfreeman/plot-tooltip\""
   }
 ]

@@ -1,0 +1,82 @@
+---
+title: "Vaccine Distribution"
+execute:
+  eval: true
+  echo: false
+  message: false
+---
+
+Please see [NCDHH's latest webpage for more information about where vaccines area available](https://www.ncdhhs.gov/divisions/public-health/monkeypox/monkeypox-vaccine-locations).
+
+## Jynneos Vaccine Distribution
+
+Below reflects the total about of Jynneos vaccine doses that has been allocated, requested, and shipped based on information from the [Administration for Strategic Preparedness and Response](https://aspr.hhs.gov/SNS/Pages/JYNNEOS-Distribution.aspx).
+Please note that administration will affect how many doses can be given per the same volume.
+
+```{ojs}
+overall = {
+  const co2data = await FileAttachment('https://raw.githubusercontent.com/wf-id/us-mpx/main/output/jynneos.csv')
+    .csv({ typed: true });
+  return co2data;
+}
+```
+
+```{ojs}
+onlyNC = overall.filter((state) => {
+  return state.Jurisdiction == "North Carolina"
+})
+```
+
+
+```{ojs}
+//#| eval: true
+Plot.plot({
+  y: {
+    grid: true,
+    label: "Jynneos Vaccine Doses"
+  },
+  x: {
+    label: "Date"
+  },
+  marks: [
+    Plot.ruleY([0]),
+    Plot.barY(onlyNC, {x: "DateDT", y: "AllocatedCNT", fill: ["#0088CE"], title: (d) =>
+        `${d.DateDT} \n Allocated Doses: ${d.AllocatedCNT} \n Requested Doses: ${d.RequestedCNT}` // \n makes a new line
+    }),
+    //Plot.text(onlyNC, {x: "DateDT", y: "AllocatedCNT", text: [`Requested1`], frameAnchor: "top"}),
+    //Plot.text(onlyNC, {x: "DateDT", y: "RequestedCNT", text: [`Requested2`], frameAnchor: "top"}),
+    Plot.barY(onlyNC, {x: "DateDT", y: "RequestedCNT",fill: "#58A618", title: (d) =>
+        `${d.DateDT} \n Allocated Doses: ${d.AllocatedCNT} \n Requested Doses: ${d.RequestedCNT}` // \n makes a new line
+    }),
+    
+  ]
+});
+```
+
+```{ojs}
+Inputs.table(onlyNC, {
+  columns: [
+    "Jurisdiction",
+    "DateDT",
+    "AllocatedCNT",
+    "RequestedCNT",
+    "ShippedCNT",
+    "FilledPCT"
+  ],
+
+  header: {
+    Jurisdiction: "State",
+    DateDT: "Update Date",
+    AllocatedCNT: "Allocated Doses",
+    RequestedCNT: "Requested Doses",
+    ShippedCNT : "Shipped Doses",
+    FilledPCT : "Percent of Requested Shipped"
+  }
+});
+```
+
+```{ojs}
+import {Plot} from "@mkfreeman/plot-tooltip"
+```
+
+
