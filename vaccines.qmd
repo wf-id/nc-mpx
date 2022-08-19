@@ -54,7 +54,7 @@ Plot.plot({
 ```
 
 ```{ojs}
-Inputs.table(onlyNC,, {
+Inputs.table(onlyNC, {
   columns: [
     "Jurisdiction",
     "DateDT",
