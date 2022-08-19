@@ -10,7 +10,7 @@ Please see [NCDHH's latest webpage for more information about where vaccines are
 
 ## Jynneos Vaccine Distribution
 
-Below reflects the total about of Jynneos vaccine doses that has been allocated, requested, and shipped based on information from the [Administration for Strategic Preparedness and Response](https://aspr.hhs.gov/SNS/Pages/JYNNEOS-Distribution.aspx).
+Below reflects the total amount of Jynneos vaccine doses that has been allocated, requested, and shipped based on information from the [Administration for Strategic Preparedness and Response](https://aspr.hhs.gov/SNS/Pages/JYNNEOS-Distribution.aspx).
 Please note that administration will affect how many doses can be given per the same volume.
 
 ```{ojs}
