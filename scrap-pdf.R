@@ -32,7 +32,7 @@ extract_update <- function(x){
 
 fields_of_interest <- c("Total","Male", "Female", "Other than sex assigned at",
                         "0-17", "18-30", "18-29", "30-49","31-50", "50+","51+",
-                        "Black", "White","Multi-racial", "Asian", "American Indian/Alaska", "Other",
+                        "Black", "White","Multi-racial", "Asian", "American Indian/Alaska", "Other  ",
                         "Hispanic", "Non-Hispanic", "Unknown")
 
 description_demographic <- c("Total","Gender", "Gender", "Gender",
@@ -42,7 +42,7 @@ description_demographic <- c("Total","Gender", "Gender", "Gender",
 
 
 # go get them ---------------------------------------------------------------------------------
-extract_field("18-29")
+extract_field("Other  ")
 
 dat_extracted <- purrr::map(fields_of_interest, extract_field)
 
