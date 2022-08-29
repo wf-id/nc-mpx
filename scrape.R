@@ -40,13 +40,13 @@ vaccines <- html_text %>%
 
 # write outputs -----------------------------------------------------------
 
-dat_out <- data.frame(date = dat, cases = cases, ping_time = ping_time)
+dat_out <- data.frame(date = dat, cases = cases, ping_time = ping_time, vaccines = vaccines)
 
 dat_out$clean_date <- data.table::as.IDate(with(dat_out, as.Date(stringr::str_extract(ping_time, "\\d{4}-\\d{2}-\\d{2}"))))
 
 dat_old <-data.table::fread(here::here("data", "mpx.csv"))
 
-dat_combined <- rbind(dat_old, dat_out)
+dat_combined <- rbind(dat_old, dat_out, fill = TRUE)
 
 dat_combined <- dat_combined[,tail(.SD,1), by = "clean_date"]
 
