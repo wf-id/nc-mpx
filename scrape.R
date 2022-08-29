@@ -19,16 +19,23 @@ html_text <- ses %>%
   read_html()
 
 cases <- html_text %>% 
-  html_nodes(xpath = '//*[@id="block-block-block-nc-base-theme-nc-site-child-theme-system-main"]/div/article/div/div/div/div[1]/div/div/div/div/a/div/h3') %>% 
+  html_nodes(xpath = '//*[@id="block-block-block-nc-base-theme-nc-site-child-theme-system-main"]/div/article/div/div[2]/div/div[1]/div/section/section/div[1]/div/div/div/div/div/div/span') %>% 
   html_text() |> 
   stringr::str_extract(pattern = "\\d+") |> 
   as.integer()
 
 date <- html_text %>% 
-  html_nodes(xpath = '//*[@id="block-block-block-nc-base-theme-nc-site-child-theme-system-main"]/div/article/div/div/div/div[1]/div/div/div/div/a/div/span[2]') %>% 
+  html_nodes(xpath = '//*[@id="block-block-block-nc-base-theme-nc-site-child-theme-system-main"]/div/article/div/div[2]/div/div[1]/div/section/section/div[1]/div/div/div/div/div/div/p') %>% 
   html_text()
 
 dat <- stringr::str_remove(unlist(strsplit(date,split = "\r\n"))[1], "\\s+")
+
+vaccines <- html_text %>%
+    html_nodes(xpath = '//*[@id="block-block-block-nc-base-theme-nc-site-child-theme-system-main"]/div/article/div/div[2]/div/div[2]/div/section/section/div[3]/div/div/div/div/div/div/span/strong') %>%
+    html_text() %>% 
+    stringr::str_remove(",") |>
+    stringr::str_extract(pattern = "\\d+") |> 
+    as.integer()
 
 
 # write outputs -----------------------------------------------------------
