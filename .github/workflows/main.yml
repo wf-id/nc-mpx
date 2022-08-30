@@ -18,7 +18,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: update glib
-        run: apt-get update; apt-get install libc6
+      -  run: apt-get update; apt-get install libc6
       #- uses: quarto-dev/quarto-actions/setup@v2
       - uses: quarto-dev/quarto-actions/install-quarto@v1
       - run: |
