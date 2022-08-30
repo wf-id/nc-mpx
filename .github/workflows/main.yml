@@ -17,6 +17,8 @@ jobs:
       
     steps:
       - uses: actions/checkout@v2
+      - name: Install dependencies
+        run: apt-get update && apt-get install -y wget gcc g++ libssl-dev pkg-config python3
       - uses: quarto-dev/quarto-actions/setup@v2
       #- uses: quarto-dev/quarto-actions/install-quarto@v1
       - run: |
