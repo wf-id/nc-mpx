@@ -20,9 +20,9 @@ jobs:
       - name: update glib
       -  run: apt-get update; apt-get install libc6
       #- uses: quarto-dev/quarto-actions/setup@v2
-      - uses: quarto-dev/quarto-actions/install-quarto@v1
-      - run: |
-          quarto --version
+      #- uses: quarto-dev/quarto-actions/install-quarto@v1
+      #- run: |
+      #    quarto --version
       - uses: r-lib/actions/setup-r@v1
         id: install-r
         with:
@@ -69,9 +69,9 @@ jobs:
           CONSUMER_SECRET: ${{ secrets.CONSUMER_SECRET }}
         run: |-
           Rscript -e "source('scrape.R')"
-      - name: quarto
-        run: |-
-          quarto render
+      #- name: quarto
+      #  run: |-
+     #     quarto render
       - name: Commit results
         run: |
           git config --local user.email "action@github.com"
