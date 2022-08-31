@@ -2,11 +2,11 @@ name: Update Website with Quarto
 
 on:
   push:
-    branches: [main, master, vaccines]
+    branches: [main]
 
 jobs:
   build:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-20.04
     env:
       RSPM: https://packagemanager.rstudio.com/cran/__linux__/bionic/latest
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
@@ -19,7 +19,7 @@ jobs:
       - uses: r-lib/actions/setup-r@v1
         id: install-r
         with:
-          r-version: 4.0.3
+          r-version: 4.1.3
       - name: Query dependencies
         run: |
           install.packages('remotes')
