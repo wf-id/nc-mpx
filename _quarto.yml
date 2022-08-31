@@ -1,6 +1,8 @@
 project:
   type: site
   output-dir: docs
+  render:
+    - "*.qmd"
 
 site:
   title: "MPX in North Carolina"
