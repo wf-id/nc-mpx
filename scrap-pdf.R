@@ -26,6 +26,13 @@ extract_update <- function(x){
   lubridate::mdy(str_extract(z,"\\d{1,2}/\\d{1,2}/\\d{2}"))
 }
 
+extract_update_2 <- function(x){
+  pg2 <- str_split(dat_raw, "\n")[[2]]
+  z <- pg2[which(grepl("\\d{1,2}, 2022", pg2))]
+  z <- str_trim(str_extract(z,"(?<= as of )\\D+ \\d{1,2}, \\d{4}"))
+  
+  lubridate::mdy(z)
+}
 
 # targets in the raw text file ----------------------------------------------------------------
 
@@ -44,11 +51,11 @@ description_demographic <- c("Total","Gender", "Gender", "Gender",
 # go get them ---------------------------------------------------------------------------------
 extract_field("Other  ")
 
-dat_extracted <- purrr::map(fields_of_interest, extract_field)
+dat_extracted <- purrr::map(fields_of_interest, ~as.numeric(extract_field(.x)))
 
 names(dat_extracted) <- fields_of_interest
 
-dat_extracted$update_date <- extract_update()
+dat_extracted$update_date <- if(length(extract_update()) ==0) extract_update_2() else extract_update()
 
 demos <- bind_rows(dat_extracted)
 

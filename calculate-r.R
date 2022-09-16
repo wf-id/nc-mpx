@@ -7,7 +7,7 @@ dat_mpx$clean_date <- with(dat_mpx, as.Date(stringr::str_extract(ping_time, "\\d
 dat_mpx$new_cases <- c(NA, diff(dat_mpx$cases))
 
 plot(cases ~ clean_date, dat_mpx)
-plot(new_cases ~ clean_date, dat_mpx)
+plot(new_cases ~ clean_date, dat_mpx, pch = 19, type = "b")
 
 library(EpiNow2)
 library(data.table)
@@ -40,7 +40,7 @@ case_data <- dat_mpx %>%
 
 glm(cases ~ as.numeric(clean_date), data = dat_mpx, family = quasipoisson())
 
-EpiNow2::growth_to_R( 0.07 , 8.17, 2.11)
+EpiNow2::growth_to_R( 0.04 , 8.17, 2.11)
 
 estimates <- epinow(reported_cases = case_data,
                     generation_time = mpx_generation,
