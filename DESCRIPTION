@@ -13,4 +13,5 @@ Imports:
     bit64,
     pdftools,
     quarto,
-    htmltools
+    htmltools,
+    padr
