@@ -17,6 +17,19 @@ dat <- fread(here::here("data", "mpx.csv"))
 
 dat$clean_date <- with(dat, as.Date(stringr::str_extract(ping_time, "\\d{4}-\\d{2}-\\d{2}")))
 
+dat_rolling <- copy(dat)[,list(clean_date, cases)]
+
+dat_rolling <- padr::pad(dat_rolling)
+dat_rolling[, cases := cases[1], by = cumsum(!is.na(cases))]
+
+dat_rolling[,incidence := cases - shift(cases,1)]
+dat_rolling[,rolling_incidence := frollmean(incidence, 7)]
+
+dat[,DOW := lubridate::wday(clean_date)]
+
+dat <- dat[(clean_date< "2022-09-10" | DOW == 6)]
+
+
 dat$date_n <- as.numeric(dat$clean_date)
 
 last_available <- format(max(dat$clean_date), "%d %B, %Y")
@@ -41,6 +54,19 @@ ggplot(dat, aes(x = clean_date, cases))+
   geom_point()+
   theme_bw()+
   scale_y_continuous(limits = c(0,NA), name = "Cumulative Confirmed MPX Cases")+
+  scale_x_date(name = "Date")+
+  labs(
+    title = "Confirmed Monkeypox (MPX) Cases in North Carolina",
+    caption = "Updated Monday - Friday\nData: NCDHHS"
+  )
+```
+
+
+```{r}
+ggplot(dat_rolling, aes(x = clean_date, rolling_incidence))+
+  geom_line()+
+  theme_bw()+
+  scale_y_continuous(limits = c(0,NA), name = "7 Day Rolling Average Incidence Confirmed MPX Cases")+
   scale_x_date(name = "Date")+
   labs(
     title = "Confirmed Monkeypox (MPX) Cases in North Carolina",
