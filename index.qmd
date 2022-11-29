@@ -34,7 +34,7 @@ dat$date_n <- as.numeric(dat$clean_date)
 
 last_available <- format(max(dat$clean_date), "%d %B, %Y")
 
-fit <- glm(cases ~ date_n, data = dat, family = quasipoisson())
+fit <- glm(cases ~ date_n, data = tail(dat, 28), family = quasipoisson())
 
 med_est <-  -log(1/2)/coef(fit)[2]
 
