@@ -21,7 +21,7 @@ html_text <- ses %>%
 cases <- html_text %>% 
   #html_nodes(xpath = '//*[@id="block-block-block-nc-base-theme-nc-site-child-theme-system-main"]/div/article/div/div[2]/div/div[1]/div/section/section/div[1]/div/div/div/div/div/div/span') %>% 
   #html_nodes(xpath = '//*[@id="block-block-block-nc-base-theme-nc-site-child-theme-system-main"]/div/article/div/div[2]/div/div[2]/div/section/section/div[1]/div/div/div/div/div/div')  |>
-html_codes(xpath = '//*[@id="content"]/section/article/div/div/div[3]/div/section/section/div[1]/div/div[2]/div/div/strong') |>
+html_nodes(xpath = '//*[@id="content"]/section/article/div/div/div[3]/div/section/section/div[1]/div/div[2]/div/div/strong') |>
 #html_nodes(xpath = '//*[@id="content"]/section/article/div/div/div[2]/div/section/section/div[1]/div/div[2]/div/div/strong') |>
 html_text() |> 
   stringr::str_extract(pattern = "\\d+") |> 
