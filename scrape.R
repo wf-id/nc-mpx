@@ -21,7 +21,8 @@ html_text <- ses %>%
 cases <- html_text %>% 
   #html_nodes(xpath = '//*[@id="block-block-block-nc-base-theme-nc-site-child-theme-system-main"]/div/article/div/div[2]/div/div[1]/div/section/section/div[1]/div/div/div/div/div/div/span') %>% 
   #html_nodes(xpath = '//*[@id="block-block-block-nc-base-theme-nc-site-child-theme-system-main"]/div/article/div/div[2]/div/div[2]/div/section/section/div[1]/div/div/div/div/div/div')  |>
-html_nodes(xpath = '//*[@id="content"]/section/article/div/div/div[3]/div/section/section/div[1]/div/div[2]/div/div/strong') |>
+#html_nodes(xpath = '//*[@id="content"]/section/article/div/div/div[3]/div/section/section/div[1]/div/div[2]/div/div/strong') |>
+html_nodes(xpath = '//*[@id="content"]/section/article/div/div/div[3]/div/section/section/div[1]/div/div/strong') |>
 #html_nodes(xpath = '//*[@id="content"]/section/article/div/div/div[2]/div/section/section/div[1]/div/div[2]/div/div/strong') |>
 html_text() |> 
   stringr::str_extract(pattern = "\\d+") |> 
@@ -32,7 +33,8 @@ cat("Cases posted: ", cases, "\n")
 date <- html_text %>% 
   #html_nodes(xpath = '//*[@id="block-block-block-nc-base-theme-nc-site-child-theme-system-main"]/div/article/div/div[2]/div/div[1]/div/section/section/div[1]/div/div/div/div/div/div/p') %>% 
   #html_node(xpath = '//*[@id="block-block-block-nc-base-theme-nc-site-child-theme-system-main"]/div/article/div/div[2]/div/div[2]/div/section/section/div[1]/div/div/div/div/div/div/p') |>
-html_nodes(xpath = '//*[@id="content"]/section/article/div/div/div[3]/div/section/section/div[1]/div/div[2]/div/div/p[2]') |>  
+#html_nodes(xpath = '//*[@id="content"]/section/article/div/div/div[3]/div/section/section/div[1]/div/div[2]/div/div/p[2]') |>  
+html_nodes(xpath = '//*[@id="content"]/section/article/div/div/div[3]/div/section/section/div[1]/div/div/p[2]') |>
 html_text()
 
 dat <- stringr::str_remove(unlist(strsplit(date,split = "\r\n"))[1], "\\s+")
@@ -40,7 +42,8 @@ dat <- stringr::str_remove(unlist(strsplit(date,split = "\r\n"))[1], "\\s+")
 vaccines <- html_text %>%
     #html_nodes(xpath = '//*[@id="block-block-block-nc-base-theme-nc-site-child-theme-system-main"]/div/article/div/div[2]/div/div[2]/div/section/section/div[3]/div/div/div/div/div/div/span/strong') %>%
     #html_nodes(xpath = '//*[@id="block-block-block-nc-base-theme-nc-site-child-theme-system-main"]/div/article/div/div[2]/div/div[3]/div/section/section/div[3]/div/div/div/div/div/div/span') %>% 
-html_nodes(xpath = '//*[@id="content"]/section/article/div/div/div[4]/div/section/section/div[3]/div/div[2]/div/div/strong') |>    
+#html_nodes(xpath = '//*[@id="content"]/section/article/div/div/div[4]/div/section/section/div[3]/div/div[2]/div/div/strong') |>    
+html_nodes(xpath = '//*[@id="content"]/section/article/div/div/div[4]/div/section/section/div[3]/div/div/strong') |>
 html_text() |>
     stringr::str_remove(",") |>
     stringr::str_extract(pattern = "\\d+") |> 
