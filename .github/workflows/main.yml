@@ -78,11 +78,23 @@ jobs:
           git commit -m "Update the latest data" -a || echo "No changes to commit"
           git push https://${{github.actor}}:${{secrets.GITHUB_TOKEN}}@github.com/${{github.repository}}.git HEAD:${{ github.ref }} || echo "No changes to commit"
       - id: release
-        uses: rymndhng/release-on-push-action@master
-        with:
-          bump_version_scheme: minor
-          tag_prefix: v
+        run: |
+          patch_version=${{ github.event.inputs.patch_version }}
+          [ ! -z $patch_version ] && patch_version="."$patch_version
+          # if so, append to usual montly number
+          current_tag="$(date '+%Y.%m.%d')${patch_version}"
+          daily_release="v${current_tag}"
+          
+          git tag -f $daily_release
+          git push
+          git push -f --tags
       - name: Check Output Parameters
         run: |
           echo "Got tag name ${{ steps.release.outputs.tag_name }}"
           echo "Got release version ${{ steps.release.outputs.version }}"
+      - name: Create a Release
+        uses: elgohr/Github-Release-Action@v4
+        env:
+          GITHUB_TOKEN: ${{ secrets.PAT }}
+        with:
+          title: "Mpox in North Carolina"
