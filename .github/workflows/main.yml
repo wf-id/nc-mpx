@@ -97,4 +97,4 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.PAT }}
         with:
-          title: "Mpox in North Carolina"
+          title: "MpoxInNorthCarolina"
