@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.4.549">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -22,7 +22,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -80,7 +80,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -89,6 +95,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -101,7 +108,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link rel="stylesheet" href="styles.css">
 <meta property="og:title" content="MPX in North Carolina - Vaccine Distribution">
 <meta property="og:description" content="">
-<meta property="og:site-name" content="MPX in North Carolina">
+<meta property="og:site_name" content="MPX in North Carolina">
 <meta name="twitter:title" content="MPX in North Carolina - Vaccine Distribution">
 <meta name="twitter:description" content="">
 <meta name="twitter:card" content="summary">
@@ -111,9 +118,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">MPX in North Carolina</span>
     </a>
@@ -125,30 +132,30 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html" rel="" target="">
- <span class="menu-text">Home</span></a>
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./us.html" rel="" target="">
- <span class="menu-text">MPX in the US</span></a>
+    <a class="nav-link" href="./us.html"> 
+<span class="menu-text">MPX in the US</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./vaccines.html" rel="" target="" aria-current="page">
- <span class="menu-text">Vaccine Distribution</span></a>
+    <a class="nav-link active" href="./vaccines.html" aria-current="page"> 
+<span class="menu-text">Vaccine Distribution</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="https://wakeforestid.com" rel="" target="">
- <span class="menu-text">Main</span></a>
+    <a class="nav-link" href="https://wakeforestid.com"> 
+<span class="menu-text">Main</span></a>
   </li>  
 </ul>
-            <div class="quarto-navbar-tools ms-auto">
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
   <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
   <div class="quarto-reader-toggle-btn">
   <i class="bi"></i>
   </div>
 </a>
 </div>
-          </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
 </header>
@@ -175,7 +182,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
   
 
+
 </header>
+
 
 <p>Please see <a href="https://www.ncdhhs.gov/divisions/public-health/monkeypox/monkeypox-vaccine-locations">NCDHH’s latest webpage for more information about where vaccines area available</a>.</p>
 <section id="jynneos-vaccine-distribution" class="level2">
@@ -271,9 +280,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 
 </main> <!-- /main -->
-
 <script type="ojs-module-contents">
-{"contents":[{"methodName":"interpret","cellName":"ojs-cell-1","inline":false,"source":"overall = {\n  const co2data = await FileAttachment('https://raw.githubusercontent.com/wf-id/us-mpx/main/output/jynneos.csv')\n    .csv({ typed: true });\n  return co2data;\n}\n"},{"methodName":"interpret","cellName":"ojs-cell-2","inline":false,"source":"onlyNC = overall.filter((state) => {\n  return state.Jurisdiction == \"North Carolina\"\n})\n"},{"methodName":"interpret","cellName":"ojs-cell-3","inline":false,"source":"//#| eval: true\nPlot.plot({\n  y: {\n    grid: true,\n    label: \"Jynneos Vaccine Doses\"\n  },\n  x: {\n    label: \"Date\"\n  },\n  marks: [\n    Plot.ruleY([0]),\n    Plot.barY(onlyNC, {x: \"DateDT\", y: \"AllocatedCNT\", fill: [\"#0088CE\"], title: (d) =>\n        `${d.DateDT} \\n Allocated Doses: ${d.AllocatedCNT} \\n Requested Doses: ${d.RequestedCNT}` // \\n makes a new line\n    }),\n    //Plot.text(onlyNC, {x: \"DateDT\", y: \"AllocatedCNT\", text: [`Requested1`], frameAnchor: \"top\"}),\n    //Plot.text(onlyNC, {x: \"DateDT\", y: \"RequestedCNT\", text: [`Requested2`], frameAnchor: \"top\"}),\n    Plot.barY(onlyNC, {x: \"DateDT\", y: \"RequestedCNT\",fill: \"#58A618\", title: (d) =>\n        `${d.DateDT} \\n Allocated Doses: ${d.AllocatedCNT} \\n Requested Doses: ${d.RequestedCNT}` // \\n makes a new line\n    }),\n    \n  ]\n});\n"},{"methodName":"interpret","cellName":"ojs-cell-4","inline":false,"source":"Inputs.table(onlyNC, {\n  columns: [\n    \"Jurisdiction\",\n    \"DateDT\",\n    \"AllocatedCNT\",\n    \"RequestedCNT\",\n    \"ShippedCNT\",\n    \"FilledPCT\"\n  ],\n\n  header: {\n    Jurisdiction: \"State\",\n    DateDT: \"Update Date\",\n    AllocatedCNT: \"Allocated Doses\",\n    RequestedCNT: \"Requested Doses\",\n    ShippedCNT : \"Shipped Doses\",\n    FilledPCT : \"Percent of Requested Shipped\"\n  }\n});\n"},{"methodName":"interpret","cellName":"ojs-cell-5","inline":false,"source":"import {Plot} from \"@mkfreeman/plot-tooltip\"\n"}]}
+eyJjb250ZW50cyI6W3sibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMSIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6Im92ZXJhbGwgPSB7XG4gIGNvbnN0IGNvMmRhdGEgPSBhd2FpdCBGaWxlQXR0YWNobWVudCgnaHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL3dmLWlkL3VzLW1weC9tYWluL291dHB1dC9qeW5uZW9zLmNzdicpXG4gICAgLmNzdih7IHR5cGVkOiB0cnVlIH0pO1xuICByZXR1cm4gY28yZGF0YTtcbn1cbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMiIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6Im9ubHlOQyA9IG92ZXJhbGwuZmlsdGVyKChzdGF0ZSkgPT4ge1xuICByZXR1cm4gc3RhdGUuSnVyaXNkaWN0aW9uID09IFwiTm9ydGggQ2Fyb2xpbmFcIlxufSlcbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMyIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6Ii8vI3wgZXZhbDogdHJ1ZVxuUGxvdC5wbG90KHtcbiAgeToge1xuICAgIGdyaWQ6IHRydWUsXG4gICAgbGFiZWw6IFwiSnlubmVvcyBWYWNjaW5lIERvc2VzXCJcbiAgfSxcbiAgeDoge1xuICAgIGxhYmVsOiBcIkRhdGVcIlxuICB9LFxuICBtYXJrczogW1xuICAgIFBsb3QucnVsZVkoWzBdKSxcbiAgICBQbG90LmJhclkob25seU5DLCB7eDogXCJEYXRlRFRcIiwgeTogXCJBbGxvY2F0ZWRDTlRcIiwgZmlsbDogW1wiIzAwODhDRVwiXSwgdGl0bGU6IChkKSA9PlxuICAgICAgICBgJHtkLkRhdGVEVH0gXFxuIEFsbG9jYXRlZCBEb3NlczogJHtkLkFsbG9jYXRlZENOVH0gXFxuIFJlcXVlc3RlZCBEb3NlczogJHtkLlJlcXVlc3RlZENOVH1gIC8vIFxcbiBtYWtlcyBhIG5ldyBsaW5lXG4gICAgfSksXG4gICAgLy9QbG90LnRleHQob25seU5DLCB7eDogXCJEYXRlRFRcIiwgeTogXCJBbGxvY2F0ZWRDTlRcIiwgdGV4dDogW2BSZXF1ZXN0ZWQxYF0sIGZyYW1lQW5jaG9yOiBcInRvcFwifSksXG4gICAgLy9QbG90LnRleHQob25seU5DLCB7eDogXCJEYXRlRFRcIiwgeTogXCJSZXF1ZXN0ZWRDTlRcIiwgdGV4dDogW2BSZXF1ZXN0ZWQyYF0sIGZyYW1lQW5jaG9yOiBcInRvcFwifSksXG4gICAgUGxvdC5iYXJZKG9ubHlOQywge3g6IFwiRGF0ZURUXCIsIHk6IFwiUmVxdWVzdGVkQ05UXCIsZmlsbDogXCIjNThBNjE4XCIsIHRpdGxlOiAoZCkgPT5cbiAgICAgICAgYCR7ZC5EYXRlRFR9IFxcbiBBbGxvY2F0ZWQgRG9zZXM6ICR7ZC5BbGxvY2F0ZWRDTlR9IFxcbiBSZXF1ZXN0ZWQgRG9zZXM6ICR7ZC5SZXF1ZXN0ZWRDTlR9YCAvLyBcXG4gbWFrZXMgYSBuZXcgbGluZVxuICAgIH0pLFxuICAgIFxuICBdXG59KTtcbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtNCIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6IklucHV0cy50YWJsZShvbmx5TkMsIHtcbiAgY29sdW1uczogW1xuICAgIFwiSnVyaXNkaWN0aW9uXCIsXG4gICAgXCJEYXRlRFRcIixcbiAgICBcIkFsbG9jYXRlZENOVFwiLFxuICAgIFwiUmVxdWVzdGVkQ05UXCIsXG4gICAgXCJTaGlwcGVkQ05UXCIsXG4gICAgXCJGaWxsZWRQQ1RcIlxuICBdLFxuXG4gIGhlYWRlcjoge1xuICAgIEp1cmlzZGljdGlvbjogXCJTdGF0ZVwiLFxuICAgIERhdGVEVDogXCJVcGRhdGUgRGF0ZVwiLFxuICAgIEFsbG9jYXRlZENOVDogXCJBbGxvY2F0ZWQgRG9zZXNcIixcbiAgICBSZXF1ZXN0ZWRDTlQ6IFwiUmVxdWVzdGVkIERvc2VzXCIsXG4gICAgU2hpcHBlZENOVCA6IFwiU2hpcHBlZCBEb3Nlc1wiLFxuICAgIEZpbGxlZFBDVCA6IFwiUGVyY2VudCBvZiBSZXF1ZXN0ZWQgU2hpcHBlZFwiXG4gIH1cbn0pO1xuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC01IiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoiaW1wb3J0IHtQbG90fSBmcm9tIFwiQG1rZnJlZW1hbi9wbG90LXRvb2x0aXBcIlxuIn1dfQ==
 </script>
 <script type="module">
 if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }
@@ -362,10 +370,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -375,8 +382,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -389,6 +405,125 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
       return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -432,6 +567,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -457,6 +593,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -522,14 +684,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     <div class="nav-footer-left">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">
-    <a class="nav-link" href="https://www.wakehealth.edu/Specialty/i/Infectious-Diseases">Learn More About the Department</a>
+    <a class="nav-link" href="https://www.wakehealth.edu/Specialty/i/Infectious-Diseases">
+<p>Learn More About the Department</p>
+</a>
   </li>  
 </ul>
     </div>   
     <div class="nav-footer-center">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">
-    <a class="nav-link" href="./disclaimer.html">Disclaimer</a>
+    <a class="nav-link" href="./disclaimer.html">
+<p>Disclaimer</p>
+</a>
   </li>  
 </ul>
     </div>
@@ -538,6 +704,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>
   </div>
 </footer>
+
 
 
 
