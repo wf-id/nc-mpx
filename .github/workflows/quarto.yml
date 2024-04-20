@@ -39,10 +39,10 @@ jobs:
           RHUB_PLATFORM: linux-x86_64-ubuntu-gcc
           GITHUB_PAT: ${{secrets.PAT}}
         run: |
-          Rscript -e "remotes::install_github('r-hub/sysreqs', auth_toke = '${{secrets.GITHUB_TOKEN}}')"
+         # Rscript -e "remotes::install_github('r-hub/sysreqs', auth_toke = '${{secrets.GITHUB_TOKEN}}')"
           Rscript -e "install.packages('stringi', type='source')"
-          sysreqs=$(Rscript -e "cat(sysreqs::sysreq_commands('DESCRIPTION'))")
-          sudo -s eval "$sysreqs"
+ #         sysreqs=$(Rscript -e "cat(sysreqs::sysreq_commands('DESCRIPTION'))")
+#          sudo -s eval "$sysreqs"
       - name: Install dependencies
         run: |
           remotes::install_deps(dependencies = TRUE)
