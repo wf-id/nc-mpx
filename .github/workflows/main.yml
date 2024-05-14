@@ -9,43 +9,32 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-20.04
-    timeout-minutes: 30
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.11"]
+      fail-fast: false
     env:
-      RSPM: https://packagemanager.rstudio.com/cran/__linux__/focal/latest
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+      RENV_PATHS_ROOT: ~/.local/share/renv
+      LANG: "en_US.UTF-8"
+      LC_ALL: "en_US.UTF-8"
+      USE_BSPM: "true"
+      _R_CHECK_FORCE_SUGGESTS_: "false"
       
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: r-lib/actions/setup-r@v2
         id: install-r
         with:
           r-version: 4.1.3
       - uses: quarto-dev/quarto-actions/setup@v2
       - uses: quarto-dev/quarto-actions/install-quarto@v1
-      - name: Query dependencies
-        run: |
-          install.packages('remotes')
-          saveRDS(remotes::dev_package_deps(dependencies = TRUE), ".github/depends.Rds", version = 2)
-          writeLines(sprintf("R-%i.%i", getRversion()$major, getRversion()$minor), ".github/R-version")
-        shell: Rscript {0}
-      - name: Cache R packages
-        if: runner.os != 'Windows'
-        uses: actions/cache@v1
-        with:
-          path: ${{ env.R_LIBS_USER }}
-          key: ${{ runner.os }}-${{ hashFiles('.github/R-version') }}-1-${{ hashFiles('.github/depends.Rds') }}
-          restore-keys: ${{ runner.os }}-${{ hashFiles('.github/R-version') }}-1-
       - name: Install system dependencies
         if: runner.os == 'Linux'
         env:
           RHUB_PLATFORM: linux-x86_64-ubuntu-gcc
           GITHUB_PAT: ${{secrets.PAT}}
-        run: |
-       #   Rscript -e "remotes::install_github('r-hub/sysreqs', auth_toke = '${{secrets.GITHUB_TOKEN}}')"
-         # Rscript -e "install.packages('stringi', type='source')"
-     #   #  sysreqs=$(Rscript -e "cat(sysreqs::sysreq_commands('DESCRIPTION'))")
-      #    sudo -s eval "$sysreqs"
       - name: Bootstrap
         run: |
             chmod 0755 run.sh
