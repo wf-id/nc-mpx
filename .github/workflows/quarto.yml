@@ -12,7 +12,7 @@ jobs:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
       
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - uses: quarto-dev/quarto-actions/install-quarto@v1
       - run: |
           quarto --version
